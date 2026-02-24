@@ -6,18 +6,21 @@
     <title>Kenali Irvan Herman Abdullah</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- GAYA DASAR --- */
+        /* --- 1. GAYA DASAR --- */
+        html {
+            scroll-behavior: smooth; 
+        }
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
             background-color: #f4f7f6;
-            color: #2c3e50;
+            color: #475569; 
         }
         
-        /* --- NAVIGASI & HEADER --- */
+        /* --- 2. NAVIGASI & HEADER (HERO) --- */
         .hero-wrapper {
-            background-color: #cce4fc; 
+            background-color: #c8e4fb; 
             position: relative;
             overflow: hidden;
             display: flex;
@@ -35,7 +38,7 @@
         .logo {
             font-family: 'Dancing Script', cursive;
             font-size: 2.5em;
-            color: #0d2f5a;
+            color: #002050; 
             margin: 0;
         }
         .nav-links {
@@ -47,16 +50,14 @@
         }
         .nav-links a {
             text-decoration: none;
-            color: #0b5ed7;
+            color: #1a73e8; 
             font-weight: 500;
             font-size: 1.05em;
             transition: color 0.3s;
         }
         .nav-links a:hover {
-            color: #0a4baf;
+            color: #004ba0;
         }
-
-        /* --- AREA FOTO --- */
         .hero-content {
             flex-grow: 1;
             display: flex;
@@ -73,9 +74,9 @@
             display: block;
         }
 
-        /* --- TENTANG SECTION (BARU) --- */
+        /* --- 3. TENTANG SECTION --- */
         .tentang-section {
-            background-color: #f0f6fc; /* Biru sangat muda */
+            background-color: #f2f7fd; 
             padding: 100px 20px;
             position: relative;
             overflow: hidden;
@@ -90,14 +91,13 @@
             width: 500px;
             height: 500px;
             border-radius: 50%;
-            /* Membuat efek putih samar melingkar */
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
+            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
             z-index: 1;
         }
         .tentang-container {
             max-width: 800px;
             position: relative;
-            z-index: 2; /* Agar teks berada di atas lingkaran samar */
+            z-index: 2; 
         }
         .yellow-squares {
             display: flex;
@@ -108,11 +108,11 @@
             display: block;
             width: 12px;
             height: 12px;
-            background-color: #ffb800; /* Oranye/Kuning */
+            background-color: #ffb800; 
             border-radius: 2px;
         }
         .tentang-container h2 {
-            color: #0d2f5a;
+            color: #002050; 
             font-size: 2.2em;
             margin-top: 0;
             margin-bottom: 20px;
@@ -127,7 +127,7 @@
             text-align: right;
         }
         .link-selengkapnya a {
-            color: #0b5ed7;
+            color: #1a73e8; 
             text-decoration: none;
             font-weight: 600;
             font-size: 1.05em;
@@ -136,7 +136,7 @@
             text-decoration: underline;
         }
 
-        /* --- KONTEN BAWAH (SISA HALAMAN) --- */
+        /* --- 4. KONTEN BAWAH (FAKTA & KELUARGA) --- */
         .container {
             max-width: 1000px;
             margin: auto;
@@ -145,24 +145,42 @@
         .section-title {
             text-align: center;
             margin-bottom: 40px;
-            color: #1e3a8a;
+            color: #002050; 
             font-weight: 600;
+            font-size: 1.8em;
         }
-        .card-container {
+        
+        /* CSS Fakta Unik (Horizontal Scroll) */
+        .card-container-scroll {
             display: flex;
-            flex-wrap: wrap;
             gap: 25px;
-            justify-content: center;
+            overflow-x: auto;
+            padding-bottom: 20px;
+            scroll-snap-type: x mandatory;
             margin-bottom: 60px;
         }
-        .card {
+        .card-container-scroll::-webkit-scrollbar {
+            height: 8px;
+        }
+        .card-container-scroll::-webkit-scrollbar-thumb {
+            background-color: #c8e4fb;
+            border-radius: 10px;
+        }
+        .card-scroll {
             background-color: white;
             padding: 30px 20px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            width: 250px;
+            flex: 0 0 250px; 
             text-align: center;
+            scroll-snap-align: start;
         }
+        .card-scroll h3 {
+            color: #002050;
+            margin-top: 0;
+        }
+
+        /* CSS Keluarga (Grid) */
         .grid-keluarga {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -185,7 +203,7 @@
             margin: 0;
             padding: 20px 15px;
             font-weight: 600;
-            color: #1e3a8a;
+            color: #002050;
         }
         .family-card small {
             color: #64748b;
@@ -194,17 +212,42 @@
             margin-top: 5px;
         }
 
-        /* --- FOOTER --- */
+        /* --- 5. FOOTER & TOMBOL KE ATAS --- */
         footer {
-            background-color: #0d2f5a;
+            background-color: #002050; 
             color: white;
             text-align: center;
             padding: 30px;
             font-weight: 300;
         }
+
+        /* Desain Baru Tombol Kembali ke Atas (Lingkaran Melayang) */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #1a73e8; /* Biru UI untuk aksi utama */
+            color: #ffffff;
+            width: 50px; /* Lebar tombol bulat */
+            height: 50px; /* Tinggi tombol bulat */
+            border-radius: 50%; /* Membuatnya bulat sempurna */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em; /* Ukuran ikon panah */
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4); /* Efek glow bayangan biru */
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+        .back-to-top:hover {
+            background-color: #004ba0; /* Berubah jadi biru gelap saat disentuh */
+            transform: translateY(-5px) scale(1.05); /* Sedikit membesar dan terangkat */
+            box-shadow: 0 6px 20px rgba(0, 75, 160, 0.5); /* Glow bayangan menebal */
+        }
     </style>
 </head>
-<body>
+<body id="atas">
 
 <div class="hero-wrapper">
     <nav>
@@ -216,7 +259,6 @@
             <li><a href="#">Testimoni</a></li>
         </ul>
     </nav>
-
     <div class="hero-content">
         <img src="iha.png" alt="Irvan Herman Abdullah" class="hero-image">
     </div>
@@ -224,16 +266,13 @@
 
 <section class="tentang-section">
     <div class="tentang-bg-circle"></div>
-    
     <div class="tentang-container">
         <div class="yellow-squares">
             <span></span>
             <span></span>
         </div>
-        
         <h2>Tentang Irvan Herman</h2>
         <p>Irvan Herman Abdullah memiliki rekam jejak kepemimpinan lengkap sejak masa kecil. Ia dikenal sebagai sosok yang memiliki integritas, amanah, cerdas, dan berani. Irvan Herman memiliki kemampuan membuat perubahan, inovatif, memimpin di saat krisis, dan bisa membuat kebijakan yang tepat serta cepat. Menjiwai persoalan di akar rumput rakyat dan menguasai medan di arena percaturan dunia.</p>
-        
         <div class="link-selengkapnya">
             <a href="#">Lihat Selengkapnya &rarr;</a>
         </div>
@@ -243,14 +282,26 @@
 <div class="container">
     
     <h2 class="section-title">Fakta Unik</h2>
-    <div class="card-container">
-        <div class="card">
-            <h3 style="color: #1e3a8a; margin-top:0;">Rekam Jejak</h3>
-            <p>Memiliki rekam jejak kepemimpinan lengkap sejak masa kecil dengan integritas amanah.</p>
+    <div class="card-container-scroll">
+        <div class="card-scroll">
+            <h3>Rekam Jejak</h3>
+            <p>Memiliki rekam jejak kepemimpinan lengkap sejak masa kecil dengan integritas tinggi.</p>
         </div>
-        <div class="card">
-            <h3 style="color: #1e3a8a; margin-top:0;">Akar Rumput</h3>
+        <div class="card-scroll">
+            <h3>Akar Rumput</h3>
             <p>Menjiwai persoalan di akar rumput rakyat dan menguasai medan percaturan dunia.</p>
+        </div>
+        <div class="card-scroll">
+            <h3>Inovatif</h3>
+            <p>Memiliki kemampuan membuat perubahan dan memimpin dengan tenang di saat krisis.</p>
+        </div>
+        <div class="card-scroll">
+            <h3>Cerdas & Berani</h3>
+            <p>Dikenal sebagai sosok yang mampu membuat kebijakan yang tepat, cepat, dan terukur.</p>
+        </div>
+        <div class="card-scroll">
+            <h3>Kolaboratif</h3>
+            <p>Berpengalaman merangkul berbagai elemen masyarakat untuk mencapai tujuan bersama.</p>
         </div>
     </div>
 
@@ -269,8 +320,10 @@
 </div>
 
 <footer>
-    <p>&copy; 2024 Kenali Irvan Herman Abdullah. Created by Eizitpie Production</p>
+    <p>&copy; 2024 Kenali Irvan Herman Abdullah. Semua Hak Dilindungi.</p>
 </footer>
+
+<a href="#atas" class="back-to-top" title="Kembali ke Atas">&uarr;</a>
 
 </body>
 </html>
