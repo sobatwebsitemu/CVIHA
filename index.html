@@ -58,6 +58,22 @@
         .nav-links a:hover {
             color: #004ba0;
         }
+        
+        /* Gaya awal untuk ikon hamburger (Disembunyikan di layar komputer) */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background-color: #002050;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
         .hero-content {
             flex-grow: 1;
             display: flex;
@@ -150,7 +166,6 @@
             font-size: 1.8em;
         }
         
-        /* CSS Fakta Unik (Horizontal Scroll) */
         .card-container-scroll {
             display: flex;
             gap: 25px;
@@ -180,7 +195,6 @@
             margin-top: 0;
         }
 
-        /* CSS Keluarga (Grid) */
         .grid-keluarga {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -221,29 +235,78 @@
             font-weight: 300;
         }
 
-        /* Desain Baru Tombol Kembali ke Atas (Lingkaran Melayang) */
         .back-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: #1a73e8; /* Biru UI untuk aksi utama */
+            background-color: #1a73e8; 
             color: #ffffff;
-            width: 50px; /* Lebar tombol bulat */
-            height: 50px; /* Tinggi tombol bulat */
-            border-radius: 50%; /* Membuatnya bulat sempurna */
+            width: 50px; 
+            height: 50px; 
+            border-radius: 50%; 
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5em; /* Ukuran ikon panah */
+            font-size: 1.5em; 
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4); /* Efek glow bayangan biru */
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4); 
             transition: all 0.3s ease;
             z-index: 100;
         }
         .back-to-top:hover {
-            background-color: #004ba0; /* Berubah jadi biru gelap saat disentuh */
-            transform: translateY(-5px) scale(1.05); /* Sedikit membesar dan terangkat */
-            box-shadow: 0 6px 20px rgba(0, 75, 160, 0.5); /* Glow bayangan menebal */
+            background-color: #004ba0; 
+            transform: translateY(-5px) scale(1.05); 
+            box-shadow: 0 6px 20px rgba(0, 75, 160, 0.5); 
+        }
+
+        /* --- 6. MEDIA QUERIES (DESAIN KHUSUS HP) --- */
+        @media screen and (max-width: 768px) {
+            nav {
+                padding: 20px 5%;
+            }
+            .logo { font-size: 2em; }
+            
+            /* Tampilkan tombol hamburger di HP */
+            .hamburger { display: flex; }
+            
+            /* Sembunyikan menu dan ubah posisinya melayang ke bawah */
+            .nav-links {
+                display: none; 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff; /* Latar belakang putih */
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 0;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+                gap: 15px;
+            }
+            
+            /* Class untuk memunculkan menu saat diklik */
+            .nav-links.active {
+                display: flex;
+            }
+
+            /* Animasi tombol hamburger berubah menjadi 'X' */
+            .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+            .hamburger.active span:nth-child(2) { opacity: 0; }
+            .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+            /* Menyesuaikan ukuran konten lainnya di HP */
+            .tentang-container h2 { font-size: 1.8em; }
+            .section-title { font-size: 1.5em; }
+            .tentang-section { padding: 60px 15px; }
+            .container { padding: 40px 15px; }
+            
+            .back-to-top {
+                width: 40px; 
+                height: 40px;
+                bottom: 15px; 
+                right: 15px;
+                font-size: 1.2em;
+            }
         }
     </style>
 </head>
@@ -252,7 +315,14 @@
 <div class="hero-wrapper">
     <nav>
         <h1 class="logo">Irvan Herman</h1>
-        <ul class="nav-links">
+        
+        <div class="hamburger" id="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links" id="nav-links">
             <li><a href="#">Kenali Irvan</a></li>
             <li><a href="#">Rekam Jejak</a></li>
             <li><a href="#">Media</a></li>
@@ -324,6 +394,18 @@
 </footer>
 
 <a href="#atas" class="back-to-top" title="Kembali ke Atas">&uarr;</a>
+
+<script>
+    const hamburger = document.getElementById('hamburger-menu');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+        // Toggle class 'active' untuk memunculkan/menyembunyikan menu
+        navLinks.classList.toggle('active');
+        // Toggle class 'active' untuk mengubah ikon hamburger menjadi 'X'
+        hamburger.classList.toggle('active');
+    });
+</script>
 
 </body>
 </html>
