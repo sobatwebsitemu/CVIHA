@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kenali Irvan Herman Abdullah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- GAYA DASAR --- */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #2c3e50;
+        }
+        
+        /* --- NAVIGASI & HEADER --- */
+        .hero-wrapper {
+            background-color: #cce4fc; 
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 85vh; 
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 10%;
+            position: relative;
+            z-index: 10;
+        }
+        .logo {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5em;
+            color: #0d2f5a;
+            margin: 0;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #0b5ed7;
+            font-weight: 500;
+            font-size: 1.05em;
+            transition: color 0.3s;
+        }
+        .nav-links a:hover {
+            color: #0a4baf;
+        }
+
+        /* --- AREA FOTO --- */
+        .hero-content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end; 
+            position: relative;
+        }
+        .hero-image {
+            position: relative;
+            z-index: 2; 
+            max-width: 450px;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* --- TENTANG SECTION (BARU) --- */
+        .tentang-section {
+            background-color: #f0f6fc; /* Biru sangat muda */
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+        }
+        .tentang-bg-circle {
+            position: absolute;
+            left: -10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            /* Membuat efek putih samar melingkar */
+            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 60%);
+            z-index: 1;
+        }
+        .tentang-container {
+            max-width: 800px;
+            position: relative;
+            z-index: 2; /* Agar teks berada di atas lingkaran samar */
+        }
+        .yellow-squares {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+        .yellow-squares span {
+            display: block;
+            width: 12px;
+            height: 12px;
+            background-color: #ffb800; /* Oranye/Kuning */
+            border-radius: 2px;
+        }
+        .tentang-container h2 {
+            color: #0d2f5a;
+            font-size: 2.2em;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .tentang-container p {
+            color: #334155;
+            line-height: 1.8;
+            font-size: 1.05em;
+            margin-bottom: 30px;
+        }
+        .link-selengkapnya {
+            text-align: right;
+        }
+        .link-selengkapnya a {
+            color: #0b5ed7;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05em;
+        }
+        .link-selengkapnya a:hover {
+            text-decoration: underline;
+        }
+
+        /* --- KONTEN BAWAH (SISA HALAMAN) --- */
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #1e3a8a;
+            font-weight: 600;
+        }
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            justify-content: center;
+            margin-bottom: 60px;
+        }
+        .card {
+            background-color: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            width: 250px;
+            text-align: center;
+        }
+        .grid-keluarga {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        .family-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .family-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .family-card p {
+            margin: 0;
+            padding: 20px 15px;
+            font-weight: 600;
+            color: #1e3a8a;
+        }
+        .family-card small {
+            color: #64748b;
+            font-weight: 400;
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #0d2f5a;
+            color: white;
+            text-align: center;
+            padding: 30px;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero-wrapper">
+    <nav>
+        <h1 class="logo">Irvan Herman</h1>
+        <ul class="nav-links">
+            <li><a href="#">Kenali Irvan</a></li>
+            <li><a href="#">Rekam Jejak</a></li>
+            <li><a href="#">Media</a></li>
+            <li><a href="#">Testimoni</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero-content">
+        <img src="iha.png" alt="Irvan Herman Abdullah" class="hero-image">
+    </div>
+</div>
+
+<section class="tentang-section">
+    <div class="tentang-bg-circle"></div>
+    
+    <div class="tentang-container">
+        <div class="yellow-squares">
+            <span></span>
+            <span></span>
+        </div>
+        
+        <h2>Tentang Irvan Herman</h2>
+        <p>Irvan Herman Abdullah memiliki rekam jejak kepemimpinan lengkap sejak masa kecil. Ia dikenal sebagai sosok yang memiliki integritas, amanah, cerdas, dan berani. Irvan Herman memiliki kemampuan membuat perubahan, inovatif, memimpin di saat krisis, dan bisa membuat kebijakan yang tepat serta cepat. Menjiwai persoalan di akar rumput rakyat dan menguasai medan di arena percaturan dunia.</p>
+        
+        <div class="link-selengkapnya">
+            <a href="#">Lihat Selengkapnya &rarr;</a>
+        </div>
+    </div>
+</section>
+
+<div class="container">
+    
+    <h2 class="section-title">Fakta Unik</h2>
+    <div class="card-container">
+        <div class="card">
+            <h3 style="color: #1e3a8a; margin-top:0;">Rekam Jejak</h3>
+            <p>Memiliki rekam jejak kepemimpinan lengkap sejak masa kecil dengan integritas amanah.</p>
+        </div>
+        <div class="card">
+            <h3 style="color: #1e3a8a; margin-top:0;">Akar Rumput</h3>
+            <p>Menjiwai persoalan di akar rumput rakyat dan menguasai medan percaturan dunia.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title">Keluarga</h2>
+    <div class="grid-keluarga">
+        <div class="family-card">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Herman_Abdullah.jpg" alt="Herman Abdullah">
+            <p>Herman Abdullah<br><small>Ayah Irvan Herman</small></p>
+        </div>
+        <div class="family-card">
+            <img src="IMG_0707.JPG" alt="Evi Meiroza">
+            <p>Evi Meiroza<br><small>Ibu Irvan Herman</small></p>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2024 Kenali Irvan Herman Abdullah. Created by Eizitpie Production</p>
+</footer>
+
+</body>
+</html>
