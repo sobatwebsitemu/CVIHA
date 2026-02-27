@@ -6,26 +6,61 @@
     <title>Kenali Irvan Herman Abdullah</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* --- 1. GAYA DASAR --- */
+        /* --- 1. GAYA DASAR & VARIABEL --- */
+        :root {
+            --bg-color: #f4f7f6;
+            --text-color: #475569;
+            --heading-color: #002050;
+            --primary-color: #1a73e8;
+            --primary-hover: #004ba0;
+            --hero-bg: #c8e4fb;
+            --section-bg: #f2f7fd;
+            --card-bg: #ffffff;
+            --footer-bg: #002050;
+            --footer-text: #ffffff;
+            --shadow-color: rgba(0,0,0,0.05);
+            --toggle-bg: #e2e8f0;
+            --toggle-icon: #64748b;
+        }
+
+        /* Tema Gelap (Dark Mode) */
+        [data-theme="dark"] {
+            --bg-color: #121212;
+            --text-color: #e2e8f0;
+            --heading-color: #ffffff;
+            --primary-color: #64b5f6;
+            --primary-hover: #90caf9;
+            --hero-bg: #1a202c;
+            --section-bg: #1f2937;
+            --card-bg: #2d3748;
+            --footer-bg: #000000;
+            --footer-text: #e2e8f0;
+            --shadow-color: rgba(0,0,0,0.2);
+            --toggle-bg: #4a5568;
+            --toggle-icon: #e2e8f0;
+        }
+
         html {
-            scroll-behavior: smooth; 
+            scroll-behavior: smooth;
         }
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
-            color: #475569; 
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            transition: background-color 0.3s, color 0.3s;
         }
-        
+
         /* --- 2. NAVIGASI & HEADER (HERO) --- */
         .hero-wrapper {
-            background-color: #c8e4fb; 
+            background-color: var(--hero-bg);
             position: relative;
             overflow: hidden;
             display: flex;
             flex-direction: column;
-            min-height: 85vh; 
+            min-height: 85vh;
+            transition: background-color 0.3s;
         }
         nav {
             display: flex;
@@ -38,8 +73,14 @@
         .logo {
             font-family: 'Dancing Script', cursive;
             font-size: 2.5em;
-            color: #002050; 
+            color: var(--heading-color);
             margin: 0;
+            transition: color 0.3s;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 25px;
         }
         .nav-links {
             list-style: none;
@@ -50,40 +91,68 @@
         }
         .nav-links a {
             text-decoration: none;
-            color: #1a73e8; 
+            color: var(--primary-color);
             font-weight: 500;
             font-size: 1.05em;
             transition: color 0.3s;
         }
         .nav-links a:hover {
-            color: #004ba0;
+            color: var(--primary-hover);
         }
-        
-        /* Gaya awal untuk ikon hamburger (Disembunyikan di layar komputer) */
+
+        /* Tombol Dark Mode */
+        .theme-toggle-btn {
+            background-color: var(--toggle-bg);
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            color: var(--toggle-icon);
+        }
+        .theme-toggle-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            transition: transform 0.3s;
+        }
+        .theme-toggle-btn:hover svg {
+            transform: rotate(15deg);
+        }
+        /* Sembunyikan ikon yang tidak aktif */
+        [data-theme="dark"] .icon-moon { display: none; }
+        [data-theme="light"] .icon-sun { display: none; }
+
+
+        /* Ikon hamburger */
         .hamburger {
             display: none;
             cursor: pointer;
             flex-direction: column;
             gap: 5px;
+            z-index: 20; /* Agar di atas menu */
         }
         .hamburger span {
             width: 25px;
             height: 3px;
-            background-color: #002050;
+            background-color: var(--heading-color);
             border-radius: 3px;
-            transition: all 0.3s ease;
+            transition: all 0.3s ease, background-color 0.3s;
         }
 
         .hero-content {
             flex-grow: 1;
             display: flex;
             justify-content: center;
-            align-items: flex-end; 
+            align-items: flex-end;
             position: relative;
         }
         .hero-image {
             position: relative;
-            z-index: 2; 
+            z-index: 2;
             max-width: 450px;
             width: 100%;
             height: auto;
@@ -92,12 +161,13 @@
 
         /* --- 3. TENTANG SECTION --- */
         .tentang-section {
-            background-color: #f2f7fd; 
+            background-color: var(--section-bg);
             padding: 100px 20px;
             position: relative;
             overflow: hidden;
             display: flex;
             justify-content: center;
+            transition: background-color 0.3s;
         }
         .tentang-bg-circle {
             position: absolute;
@@ -109,11 +179,15 @@
             border-radius: 50%;
             background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
             z-index: 1;
+            opacity: 0.6; /* Sedikit transparan di dark mode */
+        }
+        [data-theme="dark"] .tentang-bg-circle {
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
         }
         .tentang-container {
             max-width: 800px;
             position: relative;
-            z-index: 2; 
+            z-index: 2;
         }
         .yellow-squares {
             display: flex;
@@ -124,32 +198,36 @@
             display: block;
             width: 12px;
             height: 12px;
-            background-color: #ffb800; 
+            background-color: #ffb800;
             border-radius: 2px;
         }
         .tentang-container h2 {
-            color: #002050; 
+            color: var(--heading-color);
             font-size: 2.2em;
             margin-top: 0;
             margin-bottom: 20px;
+            transition: color 0.3s;
         }
         .tentang-container p {
-            color: #334155;
+            color: var(--text-color);
             line-height: 1.8;
             font-size: 1.05em;
             margin-bottom: 30px;
+            transition: color 0.3s;
         }
         .link-selengkapnya {
             text-align: right;
         }
         .link-selengkapnya a {
-            color: #1a73e8; 
+            color: var(--primary-color);
             text-decoration: none;
             font-weight: 600;
             font-size: 1.05em;
+            transition: color 0.3s;
         }
         .link-selengkapnya a:hover {
             text-decoration: underline;
+            color: var(--primary-hover);
         }
 
         /* --- 4. KONTEN BAWAH (FAKTA & KELUARGA) --- */
@@ -161,11 +239,12 @@
         .section-title {
             text-align: center;
             margin-bottom: 40px;
-            color: #002050; 
+            color: var(--heading-color);
             font-weight: 600;
             font-size: 1.8em;
+            transition: color 0.3s;
         }
-        
+
         .card-container-scroll {
             display: flex;
             gap: 25px;
@@ -178,85 +257,115 @@
             height: 8px;
         }
         .card-container-scroll::-webkit-scrollbar-thumb {
-            background-color: #c8e4fb;
+            background-color: var(--hero-bg);
             border-radius: 10px;
         }
         .card-scroll {
-            background-color: white;
+            background-color: var(--card-bg);
             padding: 30px 20px;
             border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            flex: 0 0 250px; 
+            box-shadow: 0 4px 10px var(--shadow-color);
+            flex: 0 0 250px;
             text-align: center;
             scroll-snap-align: start;
+            transition: background-color 0.3s, box-shadow 0.3s;
         }
         .card-scroll h3 {
-            color: #002050;
+            color: var(--heading-color);
             margin-top: 0;
+            transition: color 0.3s;
+        }
+        .card-scroll p {
+            color: var(--text-color);
+            transition: color 0.3s;
         }
 
+        /* Grid Keluarga dengan Foto Lebih Besar */
         .grid-keluarga {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Kolom lebih lebar */
+            gap: 40px; /* Jarak antar kartu lebih besar */
             margin-bottom: 60px;
+            justify-items: center; /* Pusatkan kartu dalam grid */
         }
         .family-card {
-            background-color: white;
-            border-radius: 12px;
+            background-color: var(--card-bg);
+            border-radius: 16px; /* Radius sudut lebih besar */
             overflow: hidden;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 6px 15px var(--shadow-color); /* Bayangan lebih tegas */
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+            max-width: 350px; /* Batasi lebar maksimal kartu */
+            width: 100%;
+        }
+        .family-card:hover {
+            transform: translateY(-5px); /* Efek angkat saat di-hover */
+            box-shadow: 0 10px 25px var(--shadow-color);
         }
         .family-card img {
             width: 100%;
-            height: 250px;
+            height: 350px; /* Tinggi foto lebih besar */
             object-fit: cover;
+            transition: transform 0.5s ease; /* Transisi untuk efek zoom */
+        }
+        .family-card:hover img {
+            transform: scale(1.05); /* Efek zoom halus pada foto */
         }
         .family-card p {
             margin: 0;
-            padding: 20px 15px;
+            padding: 25px 20px; /* Padding lebih besar untuk teks */
             font-weight: 600;
-            color: #002050;
+            color: var(--heading-color);
+            font-size: 1.1em;
+            transition: color 0.3s;
         }
         .family-card small {
-            color: #64748b;
+            color: var(--text-color);
             font-weight: 400;
             display: block;
-            margin-top: 5px;
+            margin-top: 8px;
+            font-size: 0.9em;
+            transition: color 0.3s;
         }
 
         /* --- 5. FOOTER & TOMBOL KE ATAS --- */
         footer {
-            background-color: #002050; 
-            color: white;
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
             text-align: center;
             padding: 30px;
             font-weight: 300;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .back-to-top {
             position: fixed;
             bottom: 30px;
             right: 30px;
-            background-color: #1a73e8; 
+            background-color: var(--primary-color);
             color: #ffffff;
-            width: 50px; 
-            height: 50px; 
-            border-radius: 50%; 
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5em; 
+            font-size: 1.5em;
             text-decoration: none;
-            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4); 
-            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4);
+            transition: all 0.3s ease, background-color 0.3s;
             z-index: 100;
+            opacity: 0; /* Sembunyikan secara default */
+            visibility: hidden;
+        }
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
         }
         .back-to-top:hover {
-            background-color: #004ba0; 
-            transform: translateY(-5px) scale(1.05); 
-            box-shadow: 0 6px 20px rgba(0, 75, 160, 0.5); 
+            background-color: var(--primary-hover);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 75, 160, 0.5);
         }
 
         /* --- 6. MEDIA QUERIES (DESAIN KHUSUS HP) --- */
@@ -266,75 +375,109 @@
             }
             .logo { font-size: 2em; }
             
-            /* Tampilkan tombol hamburger di HP */
             .hamburger { display: flex; }
             
-            /* Sembunyikan menu dan ubah posisinya melayang ke bawah */
+            .nav-container {
+                /* Di HP, nav-links keluar dari aliran normal */
+            }
+
             .nav-links {
-                display: none; 
-                position: absolute;
-                top: 100%;
+                display: none;
+                position: fixed; /* Menggunakan fixed agar menutupi layar */
+                top: 0;
                 left: 0;
                 width: 100%;
-                background-color: #ffffff; /* Latar belakang putih */
+                height: 100vh; /* Setinggi layar */
+                background-color: var(--card-bg);
                 flex-direction: column;
-                text-align: center;
-                padding: 20px 0;
-                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-                gap: 15px;
+                justify-content: center; /* Pusatkan vertikal */
+                align-items: center; /* Pusatkan horizontal */
+                padding: 0;
+                box-shadow: none;
+                gap: 30px;
+                z-index: 15; /* Di bawah hamburger */
+                transition: background-color 0.3s;
             }
             
-            /* Class untuk memunculkan menu saat diklik */
             .nav-links.active {
                 display: flex;
             }
+            
+            .nav-links a {
+                font-size: 1.5em; /* Ukuran font lebih besar untuk menu HP */
+            }
 
-            /* Animasi tombol hamburger berubah menjadi 'X' */
+            /* Posisikan tombol dark mode di header pada HP */
+            .theme-toggle-btn {
+                margin-right: 15px; /* Jarak dari hamburger */
+            }
+            /* Bungkus tombol dan hamburger agar sejajar */
+            .nav-mobile-controls {
+                display: flex;
+                align-items: center;
+            }
+
             .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .hamburger.active span:nth-child(2) { opacity: 0; }
             .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-            /* Menyesuaikan ukuran konten lainnya di HP */
             .tentang-container h2 { font-size: 1.8em; }
             .section-title { font-size: 1.5em; }
             .tentang-section { padding: 60px 15px; }
             .container { padding: 40px 15px; }
             
             .back-to-top {
-                width: 40px; 
+                width: 40px;
                 height: 40px;
-                bottom: 15px; 
+                bottom: 15px;
                 right: 15px;
                 font-size: 1.2em;
+            }
+            
+            /* Penyesuaian grid keluarga di HP */
+            .grid-keluarga {
+                grid-template-columns: 1fr; /* Satu kolom penuh */
+                gap: 30px;
+            }
+            .family-card {
+                max-width: 100%; /* Lebar penuh */
+            }
+            .family-card img {
+                height: 300px; /* Tinggi foto sedikit dikurangi di HP */
             }
         }
     </style>
 </head>
-<body id="atas">
-
-<div class="hero-wrapper">
+<body id="atas" data-theme="light"> <div class="hero-wrapper">
     <nav>
         <h1 class="logo">Irvan Herman</h1>
         
-        <div class="hamburger" id="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+        <div class="nav-container">
+            <ul class="nav-links" id="nav-links">
+                <li><a href="#tentang" onclick="toggleMenu()">Kenali Irvan</a></li>
+                <li><a href="#fakta" onclick="toggleMenu()">Rekam Jejak</a></li>
+                <li><a href="#" onclick="toggleMenu()">Media</a></li>
+                <li><a href="#" onclick="toggleMenu()">Testimoni</a></li>
+            </ul>
+            
+            <button class="theme-toggle-btn" id="theme-toggle" title="Ganti Tema">
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 9c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-7c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5s.5.22.5.5v3c0 .28-.22.5-.5.5zm0 14c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5s.5.22.5.5v3c0 .28-.22.5-.5.5zm8.5-7.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5zM6.5 12h-3c-.28 0-.5.22-.5.5s.22.5.5.5h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5zm11.31-5.19l-2.12 2.12c-.2.2-.2.51 0 .71.1.1.23.15.35.15s.26-.05.35-.15l2.12-2.12c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0zM7.31 18.31l-2.12 2.12c-.2.2-.2.51 0 .71.1.1.23.15.35.15s.26-.05.35-.15l2.12-2.12c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0zm11.31 0c-.2-.2-.51-.2-.71 0l-2.12 2.12c-.2.2-.2.51 0 .71.1.1.23.15.35.15s.26-.05.35-.15l2.12-2.12c.2-.19.2-.51 0-.7zM8.31 6.81L6.19 4.69c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l2.12 2.12c.1.1.23.15.35.15s.26-.05.35-.15c.2-.19.2-.51 0-.7z"/></svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
+            </button>
 
-        <ul class="nav-links" id="nav-links">
-            <li><a href="#">Kenali Irvan</a></li>
-            <li><a href="#">Rekam Jejak</a></li>
-            <li><a href="#">Media</a></li>
-            <li><a href="#">Testimoni</a></li>
-        </ul>
+            <div class="hamburger" id="hamburger-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </nav>
     <div class="hero-content">
         <img src="iha.png" alt="Irvan Herman Abdullah" class="hero-image">
     </div>
 </div>
 
-<section class="tentang-section">
+<section class="tentang-section" id="tentang">
     <div class="tentang-bg-circle"></div>
     <div class="tentang-container">
         <div class="yellow-squares">
@@ -351,7 +494,7 @@
 
 <div class="container">
     
-    <h2 class="section-title">Fakta Unik</h2>
+    <h2 class="section-title" id="fakta">Fakta Unik</h2>
     <div class="card-container-scroll">
         <div class="card-scroll">
             <h3>Rekam Jejak</h3>
@@ -378,11 +521,11 @@
     <h2 class="section-title">Keluarga</h2>
     <div class="grid-keluarga">
         <div class="family-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Herman_Abdullah.jpg" alt="Herman Abdullah">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Herman_Abdullah.jpg" alt="Herman Abdullah - Ayah Irvan Herman">
             <p>Herman Abdullah<br><small>Ayah Irvan Herman</small></p>
         </div>
         <div class="family-card">
-            <img src="IMG_0707.JPG" alt="Evi Meiroza">
+            <img src="IMG_0707.JPG" alt="Evi Meiroza - Ibu Irvan Herman">
             <p>Evi Meiroza<br><small>Ibu Irvan Herman</small></p>
         </div>
     </div>
@@ -393,17 +536,71 @@
     <p>&copy; 2024 Kenali Irvan Herman Abdullah. Semua Hak Dilindungi.</p>
 </footer>
 
-<a href="#atas" class="back-to-top" title="Kembali ke Atas">&uarr;</a>
+<a href="#atas" class="back-to-top" id="backToTopBtn" title="Kembali ke Atas">&uarr;</a>
 
 <script>
+    // --- 1. NAVIGASI HAMBURGER ---
     const hamburger = document.getElementById('hamburger-menu');
     const navLinks = document.getElementById('nav-links');
 
-    hamburger.addEventListener('click', () => {
-        // Toggle class 'active' untuk memunculkan/menyembunyikan menu
+    function toggleMenu() {
         navLinks.classList.toggle('active');
-        // Toggle class 'active' untuk mengubah ikon hamburger menjadi 'X'
         hamburger.classList.toggle('active');
+    }
+
+    hamburger.addEventListener('click', toggleMenu);
+
+    // Tutup menu saat link diklik (khusus untuk tampilan HP)
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            if (navLinks.classList.contains('active')) {
+                toggleMenu();
+            }
+        });
+    });
+
+
+    // --- 2. TOMBOL DARK MODE ---
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Cek preferensi tema yang tersimpan di local storage
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        body.setAttribute('data-theme', currentTheme);
+    }
+
+    themeToggleBtn.addEventListener('click', () => {
+        let theme = body.getAttribute('data-theme');
+        // Ubah tema
+        if (theme === 'light') {
+            theme = 'dark';
+        } else {
+            theme = 'light';
+        }
+        body.setAttribute('data-theme', theme);
+        // Simpan preferensi ke local storage
+        localStorage.setItem('theme', theme);
+    });
+
+
+    // --- 3. TOMBOL KEMBALI KE ATAS (BACK TO TOP) ---
+    const backToTopBtn = document.getElementById("backToTopBtn");
+
+    window.onscroll = function() {scrollFunction()};
+
+    function scrollFunction() {
+        // Tampilkan tombol jika scroll lebih dari 300px
+        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+            backToTopBtn.classList.add("show");
+        } else {
+            backToTopBtn.classList.remove("show");
+        }
+    }
+
+    backToTopBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({top: 0, behavior: 'smooth'});
     });
 </script>
 
