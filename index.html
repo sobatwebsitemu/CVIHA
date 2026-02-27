@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kenali Irvan Herman Abdullah</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
     <style>
         /* --- 1. GAYA DASAR & VARIABEL --- */
         :root {
@@ -21,6 +22,8 @@
             --shadow-color: rgba(0,0,0,0.05);
             --toggle-bg: #e2e8f0;
             --toggle-icon: #64748b;
+            --text-biru-tua: #0056b3;
+            --text-biru-muda: #82b1ff;
         }
 
         /* Tema Gelap (Dark Mode) */
@@ -38,21 +41,20 @@
             --shadow-color: rgba(0,0,0,0.2);
             --toggle-bg: #4a5568;
             --toggle-icon: #e2e8f0;
+            --text-biru-tua: #60a5fa;
+            --text-biru-muda: #93c5fd;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
+            margin: 0; padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* --- 2. NAVIGASI & HEADER (HERO) --- */
+        /* --- 2. NAVIGASI & HEADER --- */
         .hero-wrapper {
             background-color: var(--hero-bg);
             position: relative;
@@ -75,30 +77,20 @@
             font-size: 2.5em;
             color: var(--heading-color);
             margin: 0;
+            cursor: pointer;
             transition: color 0.3s;
         }
-        .nav-container {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-        .nav-links {
-            list-style: none;
-            display: flex;
-            gap: 25px;
-            margin: 0;
-            padding: 0;
-        }
+        .nav-container { display: flex; align-items: center; gap: 25px; }
+        .nav-links { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
         .nav-links a {
             text-decoration: none;
             color: var(--primary-color);
             font-weight: 500;
             font-size: 1.05em;
+            cursor: pointer;
             transition: color 0.3s;
         }
-        .nav-links a:hover {
-            color: var(--primary-hover);
-        }
+        .nav-links a:hover { color: var(--primary-hover); }
 
         /* Tombol Dark Mode */
         .theme-toggle-btn {
@@ -113,350 +105,160 @@
             transition: background-color 0.3s;
             color: var(--toggle-icon);
         }
-        .theme-toggle-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: currentColor;
-            transition: transform 0.3s;
-        }
-        .theme-toggle-btn:hover svg {
-            transform: rotate(15deg);
-        }
-        /* Sembunyikan ikon yang tidak aktif */
+        .theme-toggle-btn svg { width: 20px; height: 20px; fill: currentColor; transition: transform 0.3s; }
+        .theme-toggle-btn:hover svg { transform: rotate(15deg); }
         [data-theme="dark"] .icon-moon { display: none; }
         [data-theme="light"] .icon-sun { display: none; }
 
-
-        /* Ikon hamburger */
         .hamburger {
-            display: none;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 5px;
-            z-index: 20; /* Agar di atas menu */
+            display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 20;
         }
         .hamburger span {
-            width: 25px;
-            height: 3px;
-            background-color: var(--heading-color);
-            border-radius: 3px;
-            transition: all 0.3s ease, background-color 0.3s;
+            width: 25px; height: 3px; background-color: var(--heading-color); border-radius: 3px; transition: all 0.3s ease;
         }
 
-        .hero-content {
-            flex-grow: 1;
-            display: flex;
-            justify-content: center;
-            align-items: flex-end;
-            position: relative;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .hero-image {
-            position: relative;
-            z-index: 2;
-            max-width: 450px;
+
+        /* --- TAMPILAN 1: HERO PROFIL (Logo Click) --- */
+        .hero-baru {
+            display: flex; /* Aktif sebagai default */
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px 20px 0 20px;
+            flex: 1;
             width: 100%;
-            height: auto;
-            display: block;
+            box-sizing: border-box;
+            animation: fadeIn 0.8s ease-in-out;
         }
+        .hero-teks { flex: 1; }
+        .nama-bertumpuk { font-size: 5em; line-height: 0.95; margin: 0 0 30px 0; font-weight: 700; letter-spacing: -2px; }
+        .teks-biru-tua { color: var(--text-biru-tua); } 
+        .teks-biru-muda { color: var(--text-biru-muda); }
+        .kutipan-hero p { color: var(--primary-color); font-size: 1.3em; font-weight: 500; margin: 10px 0; }
+        .kotak-oranye { display: flex; gap: 6px; }
+        .kotak-oranye span { width: 12px; height: 12px; background-color: #ffb800; border-radius: 2px;}
+        .panah-bawah { color: var(--text-biru-muda); font-size: 2em; margin-top: 10px; }
+        .hero-foto { flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; height: 100%; }
+        .hero-foto img { max-width: 90%; max-height: 60vh; object-fit: contain; }
 
-        /* --- 3. TENTANG SECTION --- */
+        /* --- TAMPILAN 2: KONTEN LAMA (Kenali Irvan Click) --- */
+        .hero-content {
+            display: none; /* Awalnya disembunyikan */
+            flex-grow: 1; justify-content: center; align-items: flex-end; position: relative;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+        .hero-image { position: relative; z-index: 2; max-width: 450px; width: 100%; height: auto; display: block; }
+
         .tentang-section {
-            background-color: var(--section-bg);
-            padding: 100px 20px;
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
+            display: none; /* Awalnya disembunyikan */
+            background-color: var(--section-bg); padding: 100px 20px; position: relative; overflow: hidden; justify-content: center;
             transition: background-color 0.3s;
+            animation: fadeIn 0.8s ease-in-out;
         }
         .tentang-bg-circle {
-            position: absolute;
-            left: -10%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 500px;
-            height: 500px;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%);
-            z-index: 1;
-            opacity: 0.6; /* Sedikit transparan di dark mode */
+            position: absolute; left: -10%; top: 50%; transform: translateY(-50%); width: 500px; height: 500px;
+            border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%); z-index: 1; opacity: 0.6;
         }
-        [data-theme="dark"] .tentang-bg-circle {
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
-        }
-        .tentang-container {
-            max-width: 800px;
-            position: relative;
-            z-index: 2;
-        }
-        .yellow-squares {
-            display: flex;
-            gap: 6px;
-            margin-bottom: 10px;
-        }
-        .yellow-squares span {
-            display: block;
-            width: 12px;
-            height: 12px;
-            background-color: #ffb800;
-            border-radius: 2px;
-        }
-        .tentang-container h2 {
-            color: var(--heading-color);
-            font-size: 2.2em;
-            margin-top: 0;
-            margin-bottom: 20px;
-            transition: color 0.3s;
-        }
-        .tentang-container p {
-            color: var(--text-color);
-            line-height: 1.8;
-            font-size: 1.05em;
-            margin-bottom: 30px;
-            transition: color 0.3s;
-        }
-        .link-selengkapnya {
-            text-align: right;
-        }
-        .link-selengkapnya a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05em;
-            transition: color 0.3s;
-        }
-        .link-selengkapnya a:hover {
-            text-decoration: underline;
-            color: var(--primary-hover);
-        }
+        [data-theme="dark"] .tentang-bg-circle { background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%); }
+        .tentang-container { max-width: 800px; position: relative; z-index: 2; }
+        .yellow-squares { display: flex; gap: 6px; margin-bottom: 10px; }
+        .yellow-squares span { display: block; width: 12px; height: 12px; background-color: #ffb800; border-radius: 2px; }
+        .tentang-container h2 { color: var(--heading-color); font-size: 2.2em; margin-top: 0; margin-bottom: 20px; transition: color 0.3s; }
+        .tentang-container p { color: var(--text-color); line-height: 1.8; font-size: 1.05em; margin-bottom: 30px; transition: color 0.3s; }
+        .link-selengkapnya { text-align: right; }
+        .link-selengkapnya a { color: var(--primary-color); text-decoration: none; font-weight: 600; font-size: 1.05em; transition: color 0.3s; }
+        .link-selengkapnya a:hover { text-decoration: underline; color: var(--primary-hover); }
 
-        /* --- 4. KONTEN BAWAH (FAKTA & KELUARGA) --- */
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 60px 20px;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--heading-color);
-            font-weight: 600;
-            font-size: 1.8em;
-            transition: color 0.3s;
-        }
+        #fakta { display: none; animation: fadeIn 0.8s ease-in-out; }
+        .container { max-width: 1000px; margin: auto; padding: 60px 20px; }
+        .section-title { text-align: center; margin-bottom: 40px; color: var(--heading-color); font-weight: 600; font-size: 1.8em; transition: color 0.3s; }
 
-        .card-container-scroll {
-            display: flex;
-            gap: 25px;
-            overflow-x: auto;
-            padding-bottom: 20px;
-            scroll-snap-type: x mandatory;
-            margin-bottom: 60px;
-        }
-        .card-container-scroll::-webkit-scrollbar {
-            height: 8px;
-        }
-        .card-container-scroll::-webkit-scrollbar-thumb {
-            background-color: var(--hero-bg);
-            border-radius: 10px;
-        }
-        .card-scroll {
-            background-color: var(--card-bg);
-            padding: 30px 20px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px var(--shadow-color);
-            flex: 0 0 250px;
-            text-align: center;
-            scroll-snap-align: start;
-            transition: background-color 0.3s, box-shadow 0.3s;
-        }
-        .card-scroll h3 {
-            color: var(--heading-color);
-            margin-top: 0;
-            transition: color 0.3s;
-        }
-        .card-scroll p {
-            color: var(--text-color);
-            transition: color 0.3s;
-        }
+        .card-container-scroll { display: flex; gap: 25px; overflow-x: auto; padding-bottom: 20px; scroll-snap-type: x mandatory; margin-bottom: 60px; }
+        .card-container-scroll::-webkit-scrollbar { height: 8px; }
+        .card-container-scroll::-webkit-scrollbar-thumb { background-color: var(--hero-bg); border-radius: 10px; }
+        .card-scroll { background-color: var(--card-bg); padding: 30px 20px; border-radius: 12px; box-shadow: 0 4px 10px var(--shadow-color); flex: 0 0 250px; text-align: center; scroll-snap-align: start; transition: background-color 0.3s, box-shadow 0.3s; }
+        .card-scroll h3 { color: var(--heading-color); margin-top: 0; transition: color 0.3s; }
+        .card-scroll p { color: var(--text-color); transition: color 0.3s; }
 
-        /* Grid Keluarga dengan Foto Lebih Besar */
-        .grid-keluarga {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Kolom lebih lebar */
-            gap: 40px; /* Jarak antar kartu lebih besar */
-            margin-bottom: 60px;
-            justify-items: center; /* Pusatkan kartu dalam grid */
-        }
-        .family-card {
-            background-color: var(--card-bg);
-            border-radius: 16px; /* Radius sudut lebih besar */
-            overflow: hidden;
-            text-align: center;
-            box-shadow: 0 6px 15px var(--shadow-color); /* Bayangan lebih tegas */
-            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
-            max-width: 350px; /* Batasi lebar maksimal kartu */
-            width: 100%;
-        }
-        .family-card:hover {
-            transform: translateY(-5px); /* Efek angkat saat di-hover */
-            box-shadow: 0 10px 25px var(--shadow-color);
-        }
-        .family-card img {
-            width: 100%;
-            height: 350px; /* Tinggi foto lebih besar */
-            object-fit: cover;
-            transition: transform 0.5s ease; /* Transisi untuk efek zoom */
-        }
-        .family-card:hover img {
-            transform: scale(1.05); /* Efek zoom halus pada foto */
-        }
-        .family-card p {
-            margin: 0;
-            padding: 25px 20px; /* Padding lebih besar untuk teks */
-            font-weight: 600;
-            color: var(--heading-color);
-            font-size: 1.1em;
-            transition: color 0.3s;
-        }
-        .family-card small {
-            color: var(--text-color);
-            font-weight: 400;
-            display: block;
-            margin-top: 8px;
-            font-size: 0.9em;
-            transition: color 0.3s;
-        }
+        .grid-keluarga { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 60px; justify-items: center; }
+        .family-card { background-color: var(--card-bg); border-radius: 16px; overflow: hidden; text-align: center; box-shadow: 0 6px 15px var(--shadow-color); transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s; max-width: 350px; width: 100%; }
+        .family-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px var(--shadow-color); }
+        .family-card img { width: 100%; height: 350px; object-fit: cover; transition: transform 0.5s ease; }
+        .family-card:hover img { transform: scale(1.05); }
+        .family-card p { margin: 0; padding: 25px 20px; font-weight: 600; color: var(--heading-color); font-size: 1.1em; transition: color 0.3s; }
+        .family-card small { color: var(--text-color); font-weight: 400; display: block; margin-top: 8px; font-size: 0.9em; transition: color 0.3s; }
 
-        /* --- 5. FOOTER & TOMBOL KE ATAS --- */
-        footer {
-            background-color: var(--footer-bg);
-            color: var(--footer-text);
-            text-align: center;
-            padding: 30px;
-            font-weight: 300;
-            transition: background-color 0.3s, color 0.3s;
-        }
+        /* --- 5. TAMPILAN 3: MEDIA --- */
+        .media-content-wrapper { padding: 60px 20px; max-width: 1000px; margin: 0 auto; animation: fadeIn 0.8s ease-in-out; }
+        .media-header { margin-bottom: 30px; }
+        .media-header h2 { color: var(--heading-color); font-size: 1.8em; margin: 10px 0; transition: color 0.3s;}
+        .media-header p { font-size: 1em; color: var(--text-color); line-height: 1.6; transition: color 0.3s;}
+        .media-header a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
+        
+        .filter-container { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
+        .btn-filter { padding: 8px 20px; border-radius: 20px; border: 1px solid transparent; background-color: var(--card-bg); color: var(--text-color); font-family: 'Poppins', sans-serif; font-size: 0.9em; font-weight: 500; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 5px var(--shadow-color); }
+        .btn-filter.active, .btn-filter:hover { background-color: var(--primary-color); color: white; }
+        
+        .media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .media-card-item { background-color: var(--card-bg); border-radius: 12px; padding: 15px; box-shadow: 0 4px 15px var(--shadow-color); display: flex; flex-direction: column; transition: transform 0.3s, background-color 0.3s; }
+        .media-card-item:hover { transform: translateY(-5px); }
+        .media-card-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; background-color: #f1f5f9; }
+        .media-card-info { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
+        .media-card-info span { font-weight: 600; color: var(--heading-color); font-size: 0.9em; transition: color 0.3s;}
+        .download-icon { color: var(--text-color); cursor: pointer; font-size: 1.2em; transition: color 0.3s; text-decoration: none; }
+        .download-icon:hover { color: var(--primary-color); }
 
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background-color: var(--primary-color);
-            color: #ffffff;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5em;
-            text-decoration: none;
-            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4);
-            transition: all 0.3s ease, background-color 0.3s;
-            z-index: 100;
-            opacity: 0; /* Sembunyikan secara default */
-            visibility: hidden;
-        }
-        .back-to-top.show {
-            opacity: 1;
-            visibility: visible;
-        }
-        .back-to-top:hover {
-            background-color: var(--primary-hover);
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(0, 75, 160, 0.5);
-        }
+        /* --- FOOTER & TOMBOL ATAS --- */
+        footer { background-color: var(--footer-bg); color: var(--footer-text); text-align: center; padding: 30px; font-weight: 300; transition: background-color 0.3s, color 0.3s; }
+        .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: var(--primary-color); color: #ffffff; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5em; text-decoration: none; box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4); transition: all 0.3s ease, background-color 0.3s; z-index: 100; opacity: 0; visibility: hidden; }
+        .back-to-top.show { opacity: 1; visibility: visible; }
+        .back-to-top:hover { background-color: var(--primary-hover); transform: translateY(-5px) scale(1.05); box-shadow: 0 6px 20px rgba(0, 75, 160, 0.5); }
 
-        /* --- 6. MEDIA QUERIES (DESAIN KHUSUS HP) --- */
+        /* --- 6. MEDIA QUERIES --- */
         @media screen and (max-width: 768px) {
-            nav {
-                padding: 20px 5%;
-            }
+            nav { padding: 20px 5%; }
             .logo { font-size: 2em; }
-            
             .hamburger { display: flex; }
-            
-            .nav-container {
-                /* Di HP, nav-links keluar dari aliran normal */
-            }
-
-            .nav-links {
-                display: none;
-                position: fixed; /* Menggunakan fixed agar menutupi layar */
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh; /* Setinggi layar */
-                background-color: var(--card-bg);
-                flex-direction: column;
-                justify-content: center; /* Pusatkan vertikal */
-                align-items: center; /* Pusatkan horizontal */
-                padding: 0;
-                box-shadow: none;
-                gap: 30px;
-                z-index: 15; /* Di bawah hamburger */
-                transition: background-color 0.3s;
-            }
-            
-            .nav-links.active {
-                display: flex;
-            }
-            
-            .nav-links a {
-                font-size: 1.5em; /* Ukuran font lebih besar untuk menu HP */
-            }
-
-            /* Posisikan tombol dark mode di header pada HP */
-            .theme-toggle-btn {
-                margin-right: 15px; /* Jarak dari hamburger */
-            }
-            /* Bungkus tombol dan hamburger agar sejajar */
-            .nav-mobile-controls {
-                display: flex;
-                align-items: center;
-            }
-
+            .nav-links { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: var(--card-bg); flex-direction: column; justify-content: center; align-items: center; padding: 0; gap: 30px; z-index: 15; }
+            .nav-links.active { display: flex; }
+            .nav-links a { font-size: 1.5em; }
+            .theme-toggle-btn { margin-right: 15px; }
             .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
             .hamburger.active span:nth-child(2) { opacity: 0; }
             .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+            
+            .hero-baru { flex-direction: column; text-align: center; margin-top: 30px;}
+            .hero-foto { justify-content: center; margin-top: 30px;}
+            .nama-bertumpuk { font-size: 3.5em; }
+            .kotak-oranye { justify-content: center; }
 
             .tentang-container h2 { font-size: 1.8em; }
             .section-title { font-size: 1.5em; }
             .tentang-section { padding: 60px 15px; }
             .container { padding: 40px 15px; }
-            
-            .back-to-top {
-                width: 40px;
-                height: 40px;
-                bottom: 15px;
-                right: 15px;
-                font-size: 1.2em;
-            }
-            
-            /* Penyesuaian grid keluarga di HP */
-            .grid-keluarga {
-                grid-template-columns: 1fr; /* Satu kolom penuh */
-                gap: 30px;
-            }
-            .family-card {
-                max-width: 100%; /* Lebar penuh */
-            }
-            .family-card img {
-                height: 300px; /* Tinggi foto sedikit dikurangi di HP */
-            }
+            .back-to-top { width: 40px; height: 40px; bottom: 15px; right: 15px; font-size: 1.2em; }
+            .grid-keluarga { grid-template-columns: 1fr; gap: 30px; }
+            .family-card { max-width: 100%; }
+            .family-card img { height: 300px; }
         }
     </style>
 </head>
-<body id="atas" data-theme="light"> <div class="hero-wrapper">
+<body id="atas" data-theme="light">
+
+<div class="hero-wrapper">
     <nav>
-        <h1 class="logo">Irvan Herman</h1>
+        <h1 class="logo" id="logo-trigger" title="Kembali ke Beranda">Irvan Herman</h1>
         
         <div class="nav-container">
             <ul class="nav-links" id="nav-links">
-                <li><a href="#tentang" onclick="toggleMenu()">Kenali Irvan</a></li>
+                <li><a id="nav-kenali" onclick="toggleMenu()">Kenali Irvan</a></li>
                 <li><a href="#fakta" onclick="toggleMenu()">Rekam Jejak</a></li>
-                <li><a href="#" onclick="toggleMenu()">Media</a></li>
+                <li><a id="nav-media" onclick="toggleMenu()">Media</a></li>
                 <li><a href="#" onclick="toggleMenu()">Testimoni</a></li>
             </ul>
             
@@ -466,70 +268,136 @@
             </button>
 
             <div class="hamburger" id="hamburger-menu">
-                <span></span>
-                <span></span>
-                <span></span>
+                <span></span><span></span><span></span>
             </div>
         </div>
     </nav>
-    <div class="hero-content">
+    
+    <div class="hero-baru" id="view-profil">
+        <div class="hero-teks">
+            <h1 class="nama-bertumpuk">
+                <span class="teks-biru-tua">Irvan</span><br>
+                <span class="teks-biru-muda">Herman</span><br>
+                <span class="teks-biru-tua">Abdullah</span>
+            </h1>
+            <div class="kutipan-hero">
+                <div class="kotak-oranye"><span></span><span></span></div>
+                <p>Mendengarkan Permasalahan<br>dan menjawab tantangan krisis<br>dengan cara humanis.</p>
+                <div class="panah-bawah">&darr;</div>
+            </div>
+        </div>
+        <div class="hero-foto">
+            <img src="iha.png" alt="Irvan Herman Abdullah">
+        </div>
+    </div>
+
+    <div class="hero-content" id="view-kenali-hero">
         <img src="iha.png" alt="Irvan Herman Abdullah" class="hero-image">
+    </div>
+
+    <div class="hero-content" id="view-media-hero" style="display: none;">
+        <img src="iha.png" alt="Irvan Herman Abdullah Media" class="hero-image">
     </div>
 </div>
 
-<section class="tentang-section" id="tentang">
+<section class="tentang-section" id="view-kenali-tentang">
     <div class="tentang-bg-circle"></div>
     <div class="tentang-container">
-        <div class="yellow-squares">
-            <span></span>
-            <span></span>
-        </div>
+        <div class="yellow-squares"><span></span><span></span></div>
         <h2>Tentang Irvan Herman</h2>
         <p>Irvan Herman Abdullah memiliki rekam jejak kepemimpinan lengkap sejak masa kecil. Ia dikenal sebagai sosok yang memiliki integritas, amanah, cerdas, dan berani. Irvan Herman memiliki kemampuan membuat perubahan, inovatif, memimpin di saat krisis, dan bisa membuat kebijakan yang tepat serta cepat. Menjiwai persoalan di akar rumput rakyat dan menguasai medan di arena percaturan dunia.</p>
-        <div class="link-selengkapnya">
-            <a href="#">Lihat Selengkapnya &rarr;</a>
-        </div>
+        <div class="link-selengkapnya"><a href="#">Lihat Selengkapnya &rarr;</a></div>
     </div>
 </section>
 
-<div class="container">
-    
-    <h2 class="section-title" id="fakta">Fakta Unik</h2>
+<div class="container" id="fakta">
+    <h2 class="section-title">Fakta Unik</h2>
     <div class="card-container-scroll">
-        <div class="card-scroll">
-            <h3>Rekam Jejak</h3>
-            <p>Memiliki rekam jejak kepemimpinan lengkap sejak masa kecil dengan integritas tinggi.</p>
-        </div>
-        <div class="card-scroll">
-            <h3>Akar Rumput</h3>
-            <p>Menjiwai persoalan di akar rumput rakyat dan menguasai medan percaturan dunia.</p>
-        </div>
-        <div class="card-scroll">
-            <h3>Inovatif</h3>
-            <p>Memiliki kemampuan membuat perubahan dan memimpin dengan tenang di saat krisis.</p>
-        </div>
-        <div class="card-scroll">
-            <h3>Cerdas & Berani</h3>
-            <p>Dikenal sebagai sosok yang mampu membuat kebijakan yang tepat, cepat, dan terukur.</p>
-        </div>
-        <div class="card-scroll">
-            <h3>Kolaboratif</h3>
-            <p>Berpengalaman merangkul berbagai elemen masyarakat untuk mencapai tujuan bersama.</p>
-        </div>
+        <div class="card-scroll"><h3>Rekam Jejak</h3><p>Memiliki rekam jejak kepemimpinan lengkap sejak masa kecil dengan integritas tinggi.</p></div>
+        <div class="card-scroll"><h3>Akar Rumput</h3><p>Menjiwai persoalan di akar rumput rakyat dan menguasai medan percaturan dunia.</p></div>
+        <div class="card-scroll"><h3>Inovatif</h3><p>Memiliki kemampuan membuat perubahan dan memimpin dengan tenang di saat krisis.</p></div>
+        <div class="card-scroll"><h3>Cerdas & Berani</h3><p>Dikenal sebagai sosok yang mampu membuat kebijakan yang tepat, cepat, dan terukur.</p></div>
+        <div class="card-scroll"><h3>Kolaboratif</h3><p>Berpengalaman merangkul berbagai elemen masyarakat untuk mencapai tujuan bersama.</p></div>
     </div>
 
     <h2 class="section-title">Keluarga</h2>
     <div class="grid-keluarga">
         <div class="family-card">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Herman_Abdullah.jpg" alt="Herman Abdullah - Ayah Irvan Herman">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/d/da/Herman_Abdullah.jpg" alt="Herman Abdullah">
             <p>Herman Abdullah<br><small>Ayah Irvan Herman</small></p>
         </div>
         <div class="family-card">
-            <img src="IMG_0707.JPG" alt="Evi Meiroza - Ibu Irvan Herman">
+            <img src="IMG_0707.JPG" alt="Evi Meiroza">
             <p>Evi Meiroza<br><small>Ibu Irvan Herman</small></p>
         </div>
     </div>
+</div>
 
+<div id="view-media-content" style="display: none;">
+    <div class="media-content-wrapper">
+        <div class="media-header">
+            <div class="yellow-squares"><span></span><span></span></div>
+            <h2>Hubungi Kami</h2>
+            <p>Hubungi tim resmi kampanye Irvan Herman melalui<br>
+            <a href="mailto:email@irvanherman.com">email@irvanherman.com</a></p>
+        </div>
+
+        <div class="media-header" style="margin-top: 60px;">
+            <div class="yellow-squares"><span></span><span></span></div>
+            <h2>Download File Media</h2>
+        </div>
+
+        <div class="filter-container">
+            <button class="btn-filter active">Semua</button>
+            <button class="btn-filter">Foto</button>
+            <button class="btn-filter">Poster</button>
+        </div>
+
+        <div class="media-grid">
+            <div class="media-card-item">
+                <img src="https://via.placeholder.com/300x200?text=Foto+Aktivitas" alt="Foto">
+                <div class="media-card-info">
+                    <span>Foto Aktivitas</span>
+                    <a href="#" class="download-icon" title="Download">&darr;</a>
+                </div>
+            </div>
+            <div class="media-card-item">
+                <img src="https://via.placeholder.com/300x200?text=Riwayat+Hidup" alt="Dokumen">
+                <div class="media-card-info">
+                    <span>Riwayat Hidup</span>
+                    <a href="#" class="download-icon" title="Download">&darr;</a>
+                </div>
+            </div>
+            <div class="media-card-item">
+                <img src="https://via.placeholder.com/300x200?text=Dokumen+Visi+Misi" alt="Dokumen">
+                <div class="media-card-info">
+                    <span>Dokumen Visi Misi</span>
+                    <a href="#" class="download-icon" title="Download">&darr;</a>
+                </div>
+            </div>
+            <div class="media-card-item">
+                <img src="https://via.placeholder.com/300x200?text=Infografis" alt="Poster">
+                <div class="media-card-info">
+                    <span>Infografis Rekam Jejak</span>
+                    <a href="#" class="download-icon" title="Download">&darr;</a>
+                </div>
+            </div>
+            <div class="media-card-item">
+                <img src="https://via.placeholder.com/300x200?text=Karya+Ilustrator" alt="Poster">
+                <div class="media-card-info">
+                    <span>Karya Ilustrator</span>
+                    <a href="#" class="download-icon" title="Download">&darr;</a>
+                </div>
+            </div>
+            <div class="media-card-item">
+                <img src="https://via.placeholder.com/300x200?text=Logo+Resmi" alt="Logo">
+                <div class="media-card-info">
+                    <span>Logo Resmi</span>
+                    <a href="#" class="download-icon" title="Download">&darr;</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <footer>
@@ -539,65 +407,90 @@
 <a href="#atas" class="back-to-top" id="backToTopBtn" title="Kembali ke Atas">&uarr;</a>
 
 <script>
-    // --- 1. NAVIGASI HAMBURGER ---
+    // --- LOGIKA TAB/SPA ---
+    const logoTrigger = document.getElementById('logo-trigger');
+    const navKenali = document.getElementById('nav-kenali');
+    const navMedia = document.getElementById('nav-media'); // Mengambil ID menu Media
+    
+    // Elemen Beranda
+    const viewProfil = document.getElementById('view-profil');
+    
+    // Elemen Kenali Irvan
+    const viewKenaliHero = document.getElementById('view-kenali-hero');
+    const viewKenaliTentang = document.getElementById('view-kenali-tentang');
+    const faktaKonten = document.getElementById('fakta');
+
+    // Elemen Media
+    const viewMediaHero = document.getElementById('view-media-hero');
+    const viewMediaContent = document.getElementById('view-media-content');
+
+    // Jika Logo diklik -> Beranda
+    logoTrigger.addEventListener('click', () => {
+        viewKenaliHero.style.display = 'none';
+        viewKenaliTentang.style.display = 'none';
+        faktaKonten.style.display = 'none';
+        viewMediaHero.style.display = 'none';
+        viewMediaContent.style.display = 'none';
+        
+        viewProfil.style.display = 'flex';
+    });
+
+    // Jika 'Kenali Irvan' diklik
+    navKenali.addEventListener('click', () => {
+        viewProfil.style.display = 'none';
+        viewMediaHero.style.display = 'none';
+        viewMediaContent.style.display = 'none';
+        
+        viewKenaliHero.style.display = 'flex';
+        viewKenaliTentang.style.display = 'flex';
+        faktaKonten.style.display = 'block';
+    });
+
+    // Jika 'Media' diklik
+    navMedia.addEventListener('click', () => {
+        viewProfil.style.display = 'none';
+        viewKenaliHero.style.display = 'none';
+        viewKenaliTentang.style.display = 'none';
+        faktaKonten.style.display = 'none';
+        
+        viewMediaHero.style.display = 'flex';
+        viewMediaContent.style.display = 'block';
+    });
+
+    // --- NAVIGASI HAMBURGER ---
     const hamburger = document.getElementById('hamburger-menu');
     const navLinks = document.getElementById('nav-links');
 
     function toggleMenu() {
-        navLinks.classList.toggle('active');
-        hamburger.classList.toggle('active');
+        if(window.innerWidth <= 768) {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
     }
-
     hamburger.addEventListener('click', toggleMenu);
 
-    // Tutup menu saat link diklik (khusus untuk tampilan HP)
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (navLinks.classList.contains('active')) {
-                toggleMenu();
-            }
-        });
-    });
-
-
-    // --- 2. TOMBOL DARK MODE ---
+    // --- TOMBOL DARK MODE ---
     const themeToggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
-
-    // Cek preferensi tema yang tersimpan di local storage
     const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        body.setAttribute('data-theme', currentTheme);
-    }
+    
+    if (currentTheme) body.setAttribute('data-theme', currentTheme);
 
     themeToggleBtn.addEventListener('click', () => {
-        let theme = body.getAttribute('data-theme');
-        // Ubah tema
-        if (theme === 'light') {
-            theme = 'dark';
-        } else {
-            theme = 'light';
-        }
+        let theme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
         body.setAttribute('data-theme', theme);
-        // Simpan preferensi ke local storage
         localStorage.setItem('theme', theme);
     });
 
-
-    // --- 3. TOMBOL KEMBALI KE ATAS (BACK TO TOP) ---
+    // --- TOMBOL KEMBALI KE ATAS ---
     const backToTopBtn = document.getElementById("backToTopBtn");
-
-    window.onscroll = function() {scrollFunction()};
-
-    function scrollFunction() {
-        // Tampilkan tombol jika scroll lebih dari 300px
+    window.onscroll = function() {
         if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
             backToTopBtn.classList.add("show");
         } else {
             backToTopBtn.classList.remove("show");
         }
-    }
-
+    };
     backToTopBtn.addEventListener('click', function(e) {
         e.preventDefault();
         window.scrollTo({top: 0, behavior: 'smooth'});
