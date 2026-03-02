@@ -175,7 +175,6 @@
         .container { max-width: 1000px; margin: auto; padding: 60px 20px; }
         .section-title { text-align: center; margin-bottom: 50px; color: var(--heading-color); font-weight: 700; font-size: 2em; transition: color 0.3s; }
 
-        /* Pengaturan Tampilan CSS untuk JS Toggle */
         #view-rekam-jejak, #view-keluarga, #fakta { display: none; animation: fadeIn 0.8s ease-in-out; }
 
         /* --- FAKTA UNIK SCROLL HORIZONTAL --- */
@@ -253,7 +252,7 @@
         .btn-filter.active, .btn-filter:hover { background-color: var(--primary-color); color: white; }
         
         .media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-        .media-card-item { background-color: var(--card-bg); border-radius: 12px; padding: 15px; box-shadow: 0 4px 15px var(--shadow-color); display: flex; flex-direction: column; transition: transform 0.3s, background-color 0.3s; }
+        .media-card-item { background-color: var(--card-bg); border-radius: 12px; padding: 15px; box-shadow: 0 4px 15px var(--shadow-color); display: flex; flex-direction: column; transition: transform 0.3s, background-color 0.3s, opacity 0.4s; }
         .media-card-item:hover { transform: translateY(-5px); }
         .media-card-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; background-color: #f1f5f9; }
         .media-card-info { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
@@ -277,7 +276,7 @@
             color: var(--heading-color);
             font-size: 2em;
             margin-top: 0;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             font-weight: 700;
             letter-spacing: 1px;
             transition: color 0.3s;
@@ -285,14 +284,32 @@
         .social-icons-wrapper {
             display: flex;
             justify-content: center;
-            gap: 20px;
+            gap: 35px; /* Jarak antar kolom sosmed diperlebar sedikit */
+            flex-wrap: wrap; 
         }
+        
+        /* Tambahan Flexbox untuk membungkus tombol dan label teks */
+        .social-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+        }
+        
+        .social-label {
+            font-size: 0.95em;
+            font-weight: 600;
+            color: var(--text-color);
+            transition: color 0.3s ease;
+        }
+
         .social-icon-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 55px;
-            height: 55px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             border: 2px solid var(--primary-color);
             color: var(--primary-color);
@@ -301,18 +318,25 @@
             background-color: transparent;
         }
         .social-icon-btn svg {
-            width: 22px;
-            height: 22px;
+            width: 24px;
+            height: 24px;
             fill: currentColor;
         }
-        .social-icon-btn:hover {
+        
+        /* Efek hover diaplikasikan ke parent agar ikon dan teks berubah bersamaan */
+        .social-item:hover .social-icon-btn {
             background-color: var(--primary-color);
             color: #ffffff;
             transform: translateY(-8px) scale(1.1);
             box-shadow: 0 10px 20px rgba(26, 115, 232, 0.3);
             border-color: var(--primary-color);
         }
-        [data-theme="dark"] .social-icon-btn:hover {
+        .social-item:hover .social-label {
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+        
+        [data-theme="dark"] .social-item:hover .social-icon-btn {
             box-shadow: 0 10px 20px rgba(100, 181, 246, 0.3);
         }
 
@@ -353,8 +377,10 @@
             .family-card img { height: 300px; }
 
             .social-title { font-size: 1.6em; }
-            .social-icon-btn { width: 45px; height: 45px; }
-            .social-icon-btn svg { width: 18px; height: 18px; }
+            .social-icons-wrapper { gap: 20px; }
+            .social-icon-btn { width: 50px; height: 50px; }
+            .social-icon-btn svg { width: 20px; height: 20px; }
+            .social-label { font-size: 0.85em; }
         }
     </style>
 </head>
@@ -526,15 +552,36 @@
         <div class="social-connect-section">
             <h2 class="social-title">Terhubung Dengan Kami</h2>
             <div class="social-icons-wrapper">
-                <a href="https://www.instagram.com/doc_irvan" class="social-icon-btn" title="Instagram">
-                    <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-                </a>
-                <a href="https://www.tiktok.com/@dr.irvan.herman" class="social-icon-btn" title="TikTok">
-                    <svg viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
-                </a>
-                <a href="#" class="social-icon-btn" title="YouTube">
-                    <svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
-                </a>
+                
+                <div class="social-item">
+                    <a href="https://www.instagram.com/doc_irvan" target="_blank" class="social-icon-btn" title="Instagram">
+                        <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
+                    </a>
+                    <span class="social-label">Instagram</span>
+                </div>
+
+                <div class="social-item">
+                    <a href="https://www.tiktok.com/@dr.irvan.herman" target="_blank" class="social-icon-btn" title="TikTok">
+                        <svg viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
+                    </a>
+                    <span class="social-label">TikTok</span>
+                </div>
+
+                <div class="social-item">
+                    <a href="https://www.threads.net/@doc_irvan" target="_blank" class="social-icon-btn" title="Threads">
+                        <svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 86.6614 135.594 85.7335 133.155 85.1278C127.348 83.6872 118.995 83.275 109.13 83.275H108.979C108.204 83.275 107.41 83.2843 106.601 83.3031C107.032 80.5186 107.253 77.6369 107.253 74.672C107.253 61.2727 104.381 50.8407 98.8131 43.8344C93.4143 37.0402 85.5034 33.623 75.4674 33.623C64.9126 33.623 56.6324 37.3888 51.1091 44.7571C45.3347 52.4607 42.4277 63.6661 42.4277 77.8924C42.4277 92.4239 45.4795 103.821 51.4168 111.536C56.9657 118.746 65.2662 122.464 75.4674 122.464C83.9113 122.464 90.7297 119.897 95.6698 114.877C100.517 109.951 103.497 103.116 104.499 94.6757C105.187 94.5959 105.885 94.5513 106.593 94.5422C116.326 94.4172 124.621 95.4261 131.056 97.4984C134.12 98.4851 136.529 99.7369 138.207 101.218C139.068 101.979 139.734 102.815 140.186 103.682C138.868 113.88 134.426 122.969 126.961 129.982C118.156 138.254 105.474 142.748 89.2612 142.748C72.1062 142.748 58.7431 137.643 49.5222 127.591C39.6998 116.883 34.7634 100.441 34.7634 78.8951C34.7634 57.8105 39.7891 41.6963 49.6919 31.1075C58.8078 21.3601 71.9567 16.4258 88.5492 16.4258C105.748 16.4258 119.349 21.6444 128.847 31.916C138.077 41.9 142.724 55.9753 142.724 73.4913C142.724 79.0838 142.316 84.2863 141.537 88.9883ZM75.4674 108.974C68.9959 108.974 64.0931 106.666 60.9996 102.155C57.7303 97.3879 56.0957 89.5109 56.0957 78.847C56.0957 67.8447 57.751 59.8142 60.9821 54.9806C64.062 50.3683 68.9329 48.0125 75.4674 48.0125C82.0298 48.0125 86.8407 50.4851 89.7749 55.2284C92.9326 60.3326 94.4984 68.2046 94.4371 78.4908C94.3944 85.6631 93.3006 91.8016 91.242 96.6579C88.6946 102.668 83.3331 108.974 75.4674 108.974Z"/></svg>
+                    </a>
+                    <span class="social-label">Threads</span>
+                </div>
+
+                <div class="social-item">
+                    <a href="#" class="social-icon-btn" title="YouTube">
+                        <svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
+                    </a>
+                    <span class="social-label">YouTube</span>
+                </div>
+                
             </div>
         </div>
 
@@ -551,48 +598,49 @@
         </div>
 
         <div class="filter-container">
-            <button class="btn-filter active">Semua</button>
-            <button class="btn-filter">Foto</button>
-            <button class="btn-filter">Poster</button>
+            <button class="btn-filter active" data-filter="semua">Semua</button>
+            <button class="btn-filter" data-filter="foto">Foto</button>
+            <button class="btn-filter" data-filter="dokumen">Dokumen</button>
+            <button class="btn-filter" data-filter="poster">Poster</button>
         </div>
 
         <div class="media-grid">
-            <div class="media-card-item">
+            <div class="media-card-item" data-kategori="foto">
                 <img src="https://via.placeholder.com/300x200?text=Foto+Aktivitas" alt="Foto">
                 <div class="media-card-info">
                     <span>Foto Aktivitas</span>
                     <a href="#" class="download-icon" title="Download">&darr;</a>
                 </div>
             </div>
-            <div class="media-card-item">
+            <div class="media-card-item" data-kategori="dokumen">
                 <img src="https://via.placeholder.com/300x200?text=Riwayat+Hidup" alt="Dokumen">
                 <div class="media-card-info">
                     <span>Riwayat Hidup</span>
                     <a href="#" class="download-icon" title="Download">&darr;</a>
                 </div>
             </div>
-            <div class="media-card-item">
+            <div class="media-card-item" data-kategori="dokumen">
                 <img src="https://via.placeholder.com/300x200?text=Dokumen+Visi+Misi" alt="Dokumen">
                 <div class="media-card-info">
                     <span>Dokumen Visi Misi</span>
                     <a href="#" class="download-icon" title="Download">&darr;</a>
                 </div>
             </div>
-            <div class="media-card-item">
+            <div class="media-card-item" data-kategori="poster">
                 <img src="https://via.placeholder.com/300x200?text=Infografis" alt="Poster">
                 <div class="media-card-info">
                     <span>Infografis Rekam Jejak</span>
                     <a href="#" class="download-icon" title="Download">&darr;</a>
                 </div>
             </div>
-            <div class="media-card-item">
+            <div class="media-card-item" data-kategori="poster">
                 <img src="https://via.placeholder.com/300x200?text=Karya+Ilustrator" alt="Poster">
                 <div class="media-card-info">
                     <span>Karya Ilustrator</span>
                     <a href="#" class="download-icon" title="Download">&darr;</a>
                 </div>
             </div>
-            <div class="media-card-item">
+            <div class="media-card-item" data-kategori="foto">
                 <img src="https://via.placeholder.com/300x200?text=Logo+Resmi" alt="Logo">
                 <div class="media-card-info">
                     <span>Logo Resmi</span>
@@ -708,6 +756,27 @@
     backToTopBtn.addEventListener('click', function(e) {
         e.preventDefault();
         window.scrollTo({top: 0, behavior: 'smooth'});
+    });
+
+    // --- LOGIKA FILTER MEDIA ---
+    const filterBtns = document.querySelectorAll('.btn-filter');
+    const mediaCards = document.querySelectorAll('.media-card-item');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filterValue = btn.getAttribute('data-filter');
+
+            mediaCards.forEach(card => {
+                if (filterValue === 'semua' || card.getAttribute('data-kategori') === filterValue) {
+                    card.style.display = 'flex'; 
+                } else {
+                    card.style.display = 'none'; 
+                }
+            });
+        });
     });
 </script>
 
