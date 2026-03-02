@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kenali Irvan Herman Abdullah</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="icon" type="image/png" href="logo.png">
     <style>
         /* --- 1. GAYA DASAR & VARIABEL --- */
@@ -19,7 +22,7 @@
             --card-bg: #ffffff;
             --footer-bg: #002050;
             --footer-text: #ffffff;
-            --shadow-color: rgba(0,0,0,0.06);
+            --shadow-color: rgba(0, 0, 0, 0.06);
             --toggle-bg: #e2e8f0;
             --toggle-icon: #64748b;
             --text-biru-tua: #0056b3;
@@ -38,17 +41,21 @@
             --card-bg: #2d3748;
             --footer-bg: #000000;
             --footer-text: #e2e8f0;
-            --shadow-color: rgba(0,0,0,0.3);
+            --shadow-color: rgba(0, 0, 0, 0.3);
             --toggle-bg: #4a5568;
             --toggle-icon: #e2e8f0;
             --text-biru-tua: #60a5fa;
             --text-biru-muda: #93c5fd;
         }
 
-        html { scroll-behavior: smooth; }
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            margin: 0; padding: 0;
+            margin: 0;
+            padding: 0;
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: background-color 0.3s, color 0.3s;
@@ -64,6 +71,7 @@
             min-height: 85vh;
             transition: background-color 0.3s;
         }
+
         nav {
             display: flex;
             justify-content: space-between;
@@ -72,6 +80,7 @@
             position: relative;
             z-index: 10;
         }
+
         .logo {
             font-family: 'Dancing Script', cursive;
             font-size: 2.5em;
@@ -80,8 +89,21 @@
             cursor: pointer;
             transition: color 0.3s;
         }
-        .nav-container { display: flex; align-items: center; gap: 25px; }
-        .nav-links { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
         .nav-links a {
             text-decoration: none;
             color: var(--primary-color);
@@ -90,7 +112,10 @@
             cursor: pointer;
             transition: color 0.3s;
         }
-        .nav-links a:hover { color: var(--primary-hover); }
+
+        .nav-links a:hover {
+            color: var(--primary-hover);
+        }
 
         /* Tombol Dark Mode */
         .theme-toggle-btn {
@@ -105,21 +130,52 @@
             transition: background-color 0.3s;
             color: var(--toggle-icon);
         }
-        .theme-toggle-btn svg { width: 20px; height: 20px; fill: currentColor; transition: transform 0.3s; }
-        .theme-toggle-btn:hover svg { transform: rotate(15deg); }
-        [data-theme="dark"] .icon-moon { display: none; }
-        [data-theme="light"] .icon-sun { display: none; }
+
+        .theme-toggle-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+            transition: transform 0.3s;
+        }
+
+        .theme-toggle-btn:hover svg {
+            transform: rotate(15deg);
+        }
+
+        [data-theme="dark"] .icon-moon {
+            display: none;
+        }
+
+        [data-theme="light"] .icon-sun {
+            display: none;
+        }
 
         .hamburger {
-            display: none; cursor: pointer; flex-direction: column; gap: 5px; z-index: 20;
+            display: none;
+            cursor: pointer;
+            flex-direction: column;
+            gap: 5px;
+            z-index: 20;
         }
+
         .hamburger span {
-            width: 25px; height: 3px; background-color: var(--heading-color); border-radius: 3px; transition: all 0.3s ease;
+            width: 25px;
+            height: 3px;
+            background-color: var(--heading-color);
+            border-radius: 3px;
+            transition: all 0.3s ease;
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* --- 3. TAMPILAN HERO PROFIL --- */
@@ -135,82 +191,275 @@
             box-sizing: border-box;
             animation: fadeIn 0.8s ease-in-out;
         }
-        .hero-teks { flex: 1; }
-        .nama-bertumpuk { font-size: 5em; line-height: 0.95; margin: 0 0 30px 0; font-weight: 700; letter-spacing: -2px; }
-        .teks-biru-tua { color: var(--text-biru-tua); } 
-        .teks-biru-muda { color: var(--text-biru-muda); }
-        .kutipan-hero p { color: var(--primary-color); font-size: 1.3em; font-weight: 500; margin: 10px 0; }
-        .kotak-oranye { display: flex; gap: 6px; }
-        .kotak-oranye span { width: 12px; height: 12px; background-color: #ffb800; border-radius: 2px;}
-        .panah-bawah { color: var(--text-biru-muda); font-size: 2em; margin-top: 10px; }
-        .hero-foto { flex: 1; display: flex; justify-content: flex-end; align-items: flex-end; height: 100%; }
-        .hero-foto img { max-width: 90%; max-height: 60vh; object-fit: contain; }
+
+        .hero-teks {
+            flex: 1;
+        }
+
+        .nama-bertumpuk {
+            font-size: 5em;
+            line-height: 0.95;
+            margin: 0 0 30px 0;
+            font-weight: 700;
+            letter-spacing: -2px;
+        }
+
+        .teks-biru-tua {
+            color: var(--text-biru-tua);
+        }
+
+        .teks-biru-muda {
+            color: var(--text-biru-muda);
+        }
+
+        .kutipan-hero p {
+            color: var(--primary-color);
+            font-size: 1.3em;
+            font-weight: 500;
+            margin: 10px 0;
+        }
+
+        .kotak-oranye {
+            display: flex;
+            gap: 6px;
+        }
+
+        .kotak-oranye span {
+            width: 12px;
+            height: 12px;
+            background-color: #ffb800;
+            border-radius: 2px;
+        }
+
+        .panah-bawah {
+            color: var(--text-biru-muda);
+            font-size: 2em;
+            margin-top: 10px;
+        }
+
+        .hero-foto {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+            height: 100%;
+        }
+
+        .hero-foto img {
+            max-width: 90%;
+            max-height: 60vh;
+            object-fit: contain;
+        }
 
         /* --- TAMPILAN HERO KONTEN LAINNYA --- */
         .hero-content {
             display: none;
-            flex-grow: 1; justify-content: center; align-items: flex-end; position: relative;
+            flex-grow: 1;
+            justify-content: center;
+            align-items: flex-end;
+            position: relative;
             animation: fadeIn 0.8s ease-in-out;
         }
-        .hero-image { position: relative; z-index: 2; max-width: 450px; width: 100%; height: auto; display: block; }
+
+        .hero-image {
+            position: relative;
+            z-index: 2;
+            max-width: 450px;
+            width: 100%;
+            height: auto;
+            display: block;
+        }
 
         /* --- 4. KONTEN KENALI IRVAN --- */
         .tentang-section {
             display: none;
-            background-color: var(--section-bg); padding: 100px 20px; position: relative; overflow: hidden; justify-content: center;
+            background-color: var(--section-bg);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+            justify-content: center;
             transition: background-color 0.3s;
             animation: fadeIn 0.8s ease-in-out;
         }
+
         .tentang-bg-circle {
-            position: absolute; left: -10%; top: 50%; transform: translateY(-50%); width: 500px; height: 500px;
-            border-radius: 50%; background: radial-gradient(circle, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 70%); z-index: 1; opacity: 0.6;
+            position: absolute;
+            left: -10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: 1;
+            opacity: 0.6;
         }
-        [data-theme="dark"] .tentang-bg-circle { background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%); }
-        .tentang-container { max-width: 800px; position: relative; z-index: 2; }
-        .yellow-squares { display: flex; gap: 6px; margin-bottom: 10px; }
-        .yellow-squares span { display: block; width: 12px; height: 12px; background-color: #ffb800; border-radius: 2px; }
-        .tentang-container h2 { color: var(--heading-color); font-size: 2.2em; margin-top: 0; margin-bottom: 20px; transition: color 0.3s; }
-        .tentang-container p { color: var(--text-color); line-height: 1.8; font-size: 1.05em; margin-bottom: 30px; transition: color 0.3s; }
 
-        .container { max-width: 1000px; margin: auto; padding: 60px 20px; }
-        .section-title { text-align: center; margin-bottom: 50px; color: var(--heading-color); font-weight: 700; font-size: 2em; transition: color 0.3s; }
+        [data-theme="dark"] .tentang-bg-circle {
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+        }
 
-        #view-rekam-jejak, #view-keluarga, #fakta { display: none; animation: fadeIn 0.8s ease-in-out; }
+        .tentang-container {
+            max-width: 800px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .yellow-squares {
+            display: flex;
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        .yellow-squares span {
+            display: block;
+            width: 12px;
+            height: 12px;
+            background-color: #ffb800;
+            border-radius: 2px;
+        }
+
+        .tentang-container h2 {
+            color: var(--heading-color);
+            font-size: 2.2em;
+            margin-top: 0;
+            margin-bottom: 20px;
+            transition: color 0.3s;
+        }
+
+        .tentang-container p {
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 1.05em;
+            margin-bottom: 30px;
+            transition: color 0.3s;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: var(--heading-color);
+            font-weight: 700;
+            font-size: 2em;
+            transition: color 0.3s;
+        }
+
+        #view-rekam-jejak,
+        #view-keluarga,
+        #fakta {
+            display: none;
+            animation: fadeIn 0.8s ease-in-out;
+        }
 
         /* --- FAKTA UNIK SCROLL HORIZONTAL --- */
-        .card-container-scroll { 
-            display: flex; 
-            gap: 20px; 
-            overflow-x: auto; 
-            padding-bottom: 25px; 
-            scroll-snap-type: x mandatory; 
-            margin-bottom: 60px; 
+        .card-container-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 25px;
+            scroll-snap-type: x mandatory;
+            margin-bottom: 60px;
         }
-        .card-container-scroll::-webkit-scrollbar { height: 6px; }
-        .card-container-scroll::-webkit-scrollbar-track { background-color: var(--toggle-bg); border-radius: 10px; }
-        .card-container-scroll::-webkit-scrollbar-thumb { background-color: var(--primary-color); border-radius: 10px; }
-        
-        .card-scroll { 
-            background-color: var(--card-bg); 
-            padding: 30px 25px; 
-            border-radius: 12px; 
-            box-shadow: 0 4px 15px var(--shadow-color); 
-            flex: 0 0 280px; 
-            text-align: center; 
-            scroll-snap-align: start; 
-            transition: background-color 0.3s, box-shadow 0.3s; 
+
+        .card-container-scroll::-webkit-scrollbar {
+            height: 6px;
         }
-        .card-scroll h3 { color: var(--heading-color); margin-top: 0; font-size: 1.3em; margin-bottom: 15px; transition: color 0.3s;}
-        .card-scroll p { color: var(--text-color); font-size: 0.95em; line-height: 1.6; transition: color 0.3s;}
+
+        .card-container-scroll::-webkit-scrollbar-track {
+            background-color: var(--toggle-bg);
+            border-radius: 10px;
+        }
+
+        .card-container-scroll::-webkit-scrollbar-thumb {
+            background-color: var(--primary-color);
+            border-radius: 10px;
+        }
+
+        .card-scroll {
+            background-color: var(--card-bg);
+            padding: 30px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            flex: 0 0 280px;
+            text-align: center;
+            scroll-snap-align: start;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .card-scroll h3 {
+            color: var(--heading-color);
+            margin-top: 0;
+            font-size: 1.3em;
+            margin-bottom: 15px;
+            transition: color 0.3s;
+        }
+
+        .card-scroll p {
+            color: var(--text-color);
+            font-size: 0.95em;
+            line-height: 1.6;
+            transition: color 0.3s;
+        }
 
         /* --- KELUARGA --- */
-        .grid-keluarga { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; margin-bottom: 60px; justify-items: center; }
-        .family-card { background-color: var(--card-bg); border-radius: 16px; overflow: hidden; text-align: center; box-shadow: 0 6px 15px var(--shadow-color); transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s; max-width: 350px; width: 100%; }
-        .family-card:hover { transform: translateY(-5px); box-shadow: 0 10px 25px var(--shadow-color); }
-        .family-card img { width: 100%; height: 350px; object-fit: cover; transition: transform 0.5s ease; }
-        .family-card:hover img { transform: scale(1.05); }
-        .family-card p { margin: 0; padding: 25px 20px; font-weight: 600; color: var(--heading-color); font-size: 1.1em; transition: color 0.3s; }
-        .family-card small { color: var(--text-color); font-weight: 400; display: block; margin-top: 8px; font-size: 0.9em; transition: color 0.3s; }
+        .grid-keluarga {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+            justify-items: center;
+        }
+
+        .family-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 6px 15px var(--shadow-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s;
+            max-width: 350px;
+            width: 100%;
+        }
+
+        .family-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px var(--shadow-color);
+        }
+
+        .family-card img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .family-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .family-card p {
+            margin: 0;
+            padding: 25px 20px;
+            font-weight: 600;
+            color: var(--heading-color);
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+
+        .family-card small {
+            color: var(--text-color);
+            font-weight: 400;
+            display: block;
+            margin-top: 8px;
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
 
         /* --- 5. REKAM JEJAK GRID VERTIKAL --- */
         .rekam-jejak-grid {
@@ -230,35 +479,188 @@
             flex-direction: column;
         }
 
-        .rj-card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-        .rj-card img { width: 100%; height: 220px; object-fit: cover; border-bottom: 4px solid var(--primary-color); }
-        .rj-card-content { padding: 25px; display: flex; flex-direction: column; flex-grow: 1; }
-        .rj-badge { background-color: var(--primary-color); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 0.8em; font-weight: 600; align-self: flex-start; margin-bottom: 15px; letter-spacing: 0.5px; }
-        .rj-card h3 { color: var(--heading-color); margin: 0 0 15px 0; font-size: 1.4em; line-height: 1.4; transition: color 0.3s; }
-        .rj-card p { color: var(--text-color); font-size: 0.95em; line-height: 1.6; margin-bottom: 25px; flex-grow: 1; }
-        .rj-card-footer { display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--toggle-bg); padding-top: 15px; font-size: 0.85em; color: var(--text-color); }
-        .rj-card-footer a { color: var(--primary-color); text-decoration: none; font-weight: 600; display: flex; align-items: center; gap: 5px; }
-        .rj-card-footer a:hover { color: var(--primary-hover); }
+        .rj-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .rj-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-bottom: 4px solid var(--primary-color);
+        }
+
+        .rj-card-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .rj-badge {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            font-weight: 600;
+            align-self: flex-start;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .rj-card h3 {
+            color: var(--heading-color);
+            margin: 0 0 15px 0;
+            font-size: 1.4em;
+            line-height: 1.4;
+            transition: color 0.3s;
+        }
+
+        .rj-card p {
+            color: var(--text-color);
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .rj-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--toggle-bg);
+            padding-top: 15px;
+            font-size: 0.85em;
+            color: var(--text-color);
+        }
+
+        .rj-card-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .rj-card-footer a:hover {
+            color: var(--primary-hover);
+        }
 
         /* --- 6. MEDIA --- */
-        .media-content-wrapper { padding: 60px 20px; max-width: 1000px; margin: 0 auto; animation: fadeIn 0.8s ease-in-out; }
-        .media-header { margin-bottom: 30px; }
-        .media-header h2 { color: var(--heading-color); font-size: 1.8em; margin: 10px 0; transition: color 0.3s;}
-        .media-header p { font-size: 1em; color: var(--text-color); line-height: 1.6; transition: color 0.3s;}
-        .media-header a { color: var(--primary-color); text-decoration: none; font-weight: 500; }
-        
-        .filter-container { display: flex; gap: 15px; margin-bottom: 30px; flex-wrap: wrap; }
-        .btn-filter { padding: 8px 20px; border-radius: 20px; border: 1px solid transparent; background-color: var(--card-bg); color: var(--text-color); font-family: 'Poppins', sans-serif; font-size: 0.9em; font-weight: 500; cursor: pointer; transition: all 0.3s; box-shadow: 0 2px 5px var(--shadow-color); }
-        .btn-filter.active, .btn-filter:hover { background-color: var(--primary-color); color: white; }
-        
-        .media-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
-        .media-card-item { background-color: var(--card-bg); border-radius: 12px; padding: 15px; box-shadow: 0 4px 15px var(--shadow-color); display: flex; flex-direction: column; transition: transform 0.3s, background-color 0.3s, opacity 0.4s; }
-        .media-card-item:hover { transform: translateY(-5px); }
-        .media-card-item img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; background-color: #f1f5f9; }
-        .media-card-info { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
-        .media-card-info span { font-weight: 600; color: var(--heading-color); font-size: 0.9em; transition: color 0.3s;}
-        .download-icon { color: var(--text-color); cursor: pointer; font-size: 1.2em; transition: color 0.3s; text-decoration: none; }
-        .download-icon:hover { color: var(--primary-color); }
+        .media-content-wrapper {
+            padding: 60px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .media-header {
+            margin-bottom: 30px;
+        }
+
+        .media-header h2 {
+            color: var(--heading-color);
+            font-size: 1.8em;
+            margin: 10px 0;
+            transition: color 0.3s;
+        }
+
+        .media-header p {
+            font-size: 1em;
+            color: var(--text-color);
+            line-height: 1.6;
+            transition: color 0.3s;
+        }
+
+        .media-header a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .filter-container {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn-filter {
+            padding: 8px 20px;
+            border-radius: 20px;
+            border: 1px solid transparent;
+            background-color: var(--card-bg);
+            color: var(--text-color);
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.9em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 2px 5px var(--shadow-color);
+        }
+
+        .btn-filter.active,
+        .btn-filter:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .media-card-item {
+            background-color: var(--card-bg);
+            border-radius: 12px;
+            padding: 15px;
+            box-shadow: 0 4px 15px var(--shadow-color);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s, background-color 0.3s, opacity 0.4s;
+        }
+
+        .media-card-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .media-card-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            background-color: #f1f5f9;
+        }
+
+        .media-card-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .media-card-info span {
+            font-weight: 600;
+            color: var(--heading-color);
+            font-size: 0.9em;
+            transition: color 0.3s;
+        }
+
+        .download-icon {
+            color: var(--text-color);
+            cursor: pointer;
+            font-size: 1.2em;
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .download-icon:hover {
+            color: var(--primary-color);
+        }
 
         /* --- 7. TERHUBUNG DENGAN KAMI (SOSIAL MEDIA) --- */
         .social-connect-section {
@@ -272,6 +674,7 @@
             animation: fadeIn 0.8s ease-in-out;
             transition: background-color 0.3s, box-shadow 0.3s, border-color 0.3s;
         }
+
         .social-title {
             color: var(--heading-color);
             font-size: 2em;
@@ -281,13 +684,15 @@
             letter-spacing: 1px;
             transition: color 0.3s;
         }
+
         .social-icons-wrapper {
             display: flex;
             justify-content: center;
-            gap: 35px; /* Jarak antar kolom sosmed diperlebar sedikit */
-            flex-wrap: wrap; 
+            gap: 35px;
+            /* Jarak antar kolom sosmed diperlebar sedikit */
+            flex-wrap: wrap;
         }
-        
+
         /* Tambahan Flexbox untuk membungkus tombol dan label teks */
         .social-item {
             display: flex;
@@ -296,7 +701,7 @@
             gap: 12px;
             cursor: pointer;
         }
-        
+
         .social-label {
             font-size: 0.95em;
             font-weight: 600;
@@ -317,12 +722,13 @@
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             background-color: transparent;
         }
+
         .social-icon-btn svg {
             width: 24px;
             height: 24px;
             fill: currentColor;
         }
-        
+
         /* Efek hover diaplikasikan ke parent agar ikon dan teks berubah bersamaan */
         .social-item:hover .social-icon-btn {
             background-color: var(--primary-color);
@@ -331,454 +737,640 @@
             box-shadow: 0 10px 20px rgba(26, 115, 232, 0.3);
             border-color: var(--primary-color);
         }
+
         .social-item:hover .social-label {
             color: var(--primary-color);
             transform: translateY(-2px);
         }
-        
+
         [data-theme="dark"] .social-item:hover .social-icon-btn {
             box-shadow: 0 10px 20px rgba(100, 181, 246, 0.3);
         }
 
         /* --- FOOTER & TOMBOL ATAS --- */
-        footer { background-color: var(--footer-bg); color: var(--footer-text); text-align: center; padding: 30px; font-weight: 300; transition: background-color 0.3s, color 0.3s; }
-        .back-to-top { position: fixed; bottom: 30px; right: 30px; background-color: var(--primary-color); color: #ffffff; width: 50px; height: 50px; border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 1.5em; text-decoration: none; box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4); transition: all 0.3s ease, background-color 0.3s; z-index: 100; opacity: 0; visibility: hidden; }
-        .back-to-top.show { opacity: 1; visibility: visible; }
-        .back-to-top:hover { background-color: var(--primary-hover); transform: translateY(-5px) scale(1.05); box-shadow: 0 6px 20px rgba(0, 75, 160, 0.5); }
+        footer {
+            background-color: var(--footer-bg);
+            color: var(--footer-text);
+            text-align: center;
+            padding: 30px;
+            font-weight: 300;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: #ffffff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5em;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.4);
+            transition: all 0.3s ease, background-color 0.3s;
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 75, 160, 0.5);
+        }
 
         /* --- 8. MEDIA QUERIES --- */
         @media screen and (max-width: 768px) {
-            nav { padding: 20px 5%; }
-            .logo { font-size: 2em; }
-            .hamburger { display: flex; }
-            .nav-links { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100vh; background-color: var(--card-bg); flex-direction: column; justify-content: center; align-items: center; padding: 0; gap: 30px; z-index: 15; }
-            .nav-links.active { display: flex; }
-            .nav-links a { font-size: 1.5em; }
-            .theme-toggle-btn { margin-right: 15px; }
-            .hamburger.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-            .hamburger.active span:nth-child(2) { opacity: 0; }
-            .hamburger.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-            
-            .hero-baru { flex-direction: column; text-align: center; margin-top: 30px;}
-            .hero-foto { justify-content: center; margin-top: 30px;}
-            .nama-bertumpuk { font-size: 3.5em; }
-            .kotak-oranye { justify-content: center; }
+            nav {
+                padding: 20px 5%;
+            }
 
-            .tentang-container h2 { font-size: 1.8em; }
-            .section-title { font-size: 1.5em; }
-            .tentang-section { padding: 60px 15px; }
-            .container { padding: 40px 15px; }
-            .back-to-top { width: 40px; height: 40px; bottom: 15px; right: 15px; font-size: 1.2em; }
-            
-            .rekam-jejak-grid { grid-template-columns: 1fr; gap: 30px; }
-            
-            .grid-keluarga { grid-template-columns: 1fr; gap: 30px; }
-            .family-card { max-width: 100%; }
-            .family-card img { height: 300px; }
+            .logo {
+                font-size: 2em;
+            }
 
-            .social-title { font-size: 1.6em; }
-            .social-icons-wrapper { gap: 20px; }
-            .social-icon-btn { width: 50px; height: 50px; }
-            .social-icon-btn svg { width: 20px; height: 20px; }
-            .social-label { font-size: 0.85em; }
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background-color: var(--card-bg);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 0;
+                gap: 30px;
+                z-index: 15;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links a {
+                font-size: 1.5em;
+            }
+
+            .theme-toggle-btn {
+                margin-right: 15px;
+            }
+
+            .hamburger.active span:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active span:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .hero-baru {
+                flex-direction: column;
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            .hero-foto {
+                justify-content: center;
+                margin-top: 30px;
+            }
+
+            .nama-bertumpuk {
+                font-size: 3.5em;
+            }
+
+            .kotak-oranye {
+                justify-content: center;
+            }
+
+            .tentang-container h2 {
+                font-size: 1.8em;
+            }
+
+            .section-title {
+                font-size: 1.5em;
+            }
+
+            .tentang-section {
+                padding: 60px 15px;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+
+            .back-to-top {
+                width: 40px;
+                height: 40px;
+                bottom: 15px;
+                right: 15px;
+                font-size: 1.2em;
+            }
+
+            .rekam-jejak-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .grid-keluarga {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .family-card {
+                max-width: 100%;
+            }
+
+            .family-card img {
+                height: 300px;
+            }
+
+            .social-title {
+                font-size: 1.6em;
+            }
+
+            .social-icons-wrapper {
+                gap: 20px;
+            }
+
+            .social-icon-btn {
+                width: 50px;
+                height: 50px;
+            }
+
+            .social-icon-btn svg {
+                width: 20px;
+                height: 20px;
+            }
+
+            .social-label {
+                font-size: 0.85em;
+            }
         }
     </style>
 </head>
+
 <body id="atas" data-theme="light">
 
-<div class="hero-wrapper">
-    <nav>
-        <h1 class="logo" id="logo-trigger" title="Kembali ke Beranda">Irvan Herman</h1>
-        
-        <div class="nav-container">
-            <ul class="nav-links" id="nav-links">
-                <li><a id="nav-kenali" onclick="toggleMenu()">Kenali Irvan</a></li>
-                <li><a id="nav-rekam-jejak" onclick="toggleMenu()">Rekam Jejak</a></li>
-                <li><a id="nav-media" onclick="toggleMenu()">Media</a></li>
-                <li><a href="#" onclick="toggleMenu()">Testimoni</a></li>
-            </ul>
-            
-            <button class="theme-toggle-btn" id="theme-toggle" title="Ganti Tema">
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 9c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-7c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5s.5.22.5.5v3c0 .28-.22.5-.5.5zm0 14c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5s.5.22.5.5v3c0 .28-.22.5-.5.5zm8.5-7.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5zM6.5 12h-3c-.28 0-.5.22-.5.5s.22.5.5.5h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5zm11.31-5.19l-2.12 2.12c-.2.2-.2.51 0 .71.1.1.23.15.35.15s.26-.05.35-.15l2.12-2.12c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0zM7.31 18.31l-2.12 2.12c-.2.2-.2.51 0 .71.1.1.23.15.35.15s.26-.05.35-.15l2.12-2.12c.2-.19.2-.51 0-.7zM8.31 6.81L6.19 4.69c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l2.12 2.12c.1.1.23.15.35.15s.26-.05.35-.15c.2-.19.2-.51 0-.7z"/></svg>
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z"/></svg>
-            </button>
+    <div class="hero-wrapper">
+        <nav>
+            <h1 class="logo" id="logo-trigger" title="Kembali ke Beranda">Irvan Herman</h1>
 
-            <div class="hamburger" id="hamburger-menu">
-                <span></span><span></span><span></span>
-            </div>
-        </div>
-    </nav>
-    
-    <div class="hero-baru" id="view-profil">
-        <div class="hero-teks">
-            <h1 class="nama-bertumpuk">
-                <span class="teks-biru-tua">Irvan</span><br>
-                <span class="teks-biru-muda">Herman</span><br>
-                <span class="teks-biru-tua">Abdullah</span>
-            </h1>
-            <div class="kutipan-hero">
-                <div class="kotak-oranye"><span></span><span></span></div>
-                <p>Mendengarkan Permasalahan<br>dan menjawab tantangan krisis<br>dengan cara humanis.</p>
-                <div class="panah-bawah">&darr;</div>
-            </div>
-        </div>
-        <div class="hero-foto">
-            <img src="ihaa.png" alt="Irvan Herman Abdullah">
-        </div>
-    </div>
+            <div class="nav-container">
+                <ul class="nav-links" id="nav-links">
+                    <li><a id="nav-kenali" onclick="toggleMenu()">Kenali Irvan</a></li>
+                    <li><a id="nav-rekam-jejak" onclick="toggleMenu()">Rekam Jejak</a></li>
+                    <li><a id="nav-media" onclick="toggleMenu()">Media</a></li>
+                    <li><a href="#" onclick="toggleMenu()">Testimoni</a></li>
+                </ul>
 
-    <div class="hero-content" id="view-kenali-hero">
-        <img src="iha.png" alt="Irvan Herman Abdullah" class="hero-image">
-    </div>
+                <button class="theme-toggle-btn" id="theme-toggle" title="Ganti Tema">
+                    <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0 9c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm0-7c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5s.5.22.5.5v3c0 .28-.22.5-.5.5zm0 14c-.28 0-.5-.22-.5-.5v-3c0-.28.22-.5.5-.5s.5.22.5.5v3c0 .28-.22.5-.5.5zm8.5-7.5h-3c-.28 0-.5.22-.5.5s.22.5.5.5h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5zM6.5 12h-3c-.28 0-.5.22-.5.5s.22.5.5.5h3c.28 0 .5-.22.5-.5s-.22-.5-.5-.5zm11.31-5.19l-2.12 2.12c-.2.2-.2.51 0 .71.1.1.23.15.35.15s.26-.05.35-.15l2.12-2.12c.2-.2.2-.51 0-.71-.2-.2-.51-.2-.71 0zM7.31 18.31l-2.12 2.12c-.2.2-.2.51 0 .71.1.1.23.15.35.15s.26-.05.35-.15l2.12-2.12c.2-.19.2-.51 0-.7zM8.31 6.81L6.19 4.69c-.2-.2-.51-.2-.71 0-.2.2-.2.51 0 .71l2.12 2.12c.1.1.23.15.35.15s.26-.05.35-.15c.2-.19.2-.51 0-.7z" />
+                    </svg>
+                    <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                            d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9c0-.46-.04-.92-.1-1.36-.98 1.37-2.58 2.26-4.4 2.26-3.03 0-5.5-2.47-5.5-5.5 0-1.82.89-3.42 2.26-4.4-.44-.06-.9-.1-1.36-.1z" />
+                    </svg>
+                </button>
 
-    <div class="hero-content" id="view-rekam-jejak-hero" style="display: none;">
-        <img src="ihaspot.png" alt="Irvan Herman Rekam Jejak" class="hero-image">
-    </div>
-
-    <div class="hero-content" id="view-media-hero" style="display: none;">
-        <img src="ihajass.png" alt="Irvan Herman Abdullah Media" class="hero-image">
-    </div>
-</div>
-
-<section class="tentang-section" id="view-kenali-tentang">
-    <div class="tentang-bg-circle"></div>
-    <div class="tentang-container">
-        <div class="yellow-squares"><span></span><span></span></div>
-        <h2>Tentang Irvan Herman</h2>
-        <p>Irvan Herman Abdullah memiliki rekam jejak kepemimpinan lengkap sejak masa kecil. Ia dikenal sebagai sosok yang memiliki integritas, amanah, cerdas, dan berani. Irvan Herman memiliki kemampuan membuat perubahan, inovatif, memimpin di saat krisis, dan bisa membuat kebijakan yang tepat serta cepat. Menjiwai persoalan di akar rumput rakyat dan menguasai medan di arena percaturan dunia.</p>
-        <div class="link-selengkapnya"><a href="#">Lihat Selengkapnya &rarr;</a></div>
-    </div>
-</section>
-
-<div class="container" id="fakta">
-    <h2 class="section-title">Fakta Unik</h2>
-    <div class="card-container-scroll">
-        <div class="card-scroll"><h3>Rekam Jejak</h3><p>Memiliki rekam jejak kepemimpinan lengkap sejak masa kecil dengan integritas tinggi.</p></div>
-        <div class="card-scroll"><h3>Akar Rumput</h3><p>Menjiwai persoalan di akar rumput rakyat dan menguasai medan percaturan dunia.</p></div>
-        <div class="card-scroll"><h3>Inovatif</h3><p>Memiliki kemampuan membuat perubahan dan memimpin dengan tenang di saat krisis.</p></div>
-        <div class="card-scroll"><h3>Cerdas & Berani</h3><p>Dikenal sebagai sosok yang mampu membuat kebijakan yang tepat, cepat, dan terukur.</p></div>
-        <div class="card-scroll"><h3>Kolaboratif</h3><p>Berpengalaman merangkul berbagai elemen masyarakat untuk mencapai tujuan bersama.</p></div>
-    </div>
-</div>
-
-<div class="container" id="view-keluarga">
-    <h2 class="section-title">Keluarga</h2>
-    <div class="grid-keluarga">
-        <div class="family-card">
-            <img src="ayah.png" alt="Herman Abdullah">
-            <p>Herman Abdullah<br><small>Ayah Irvan Herman</small></p>
-        </div>
-        <div class="family-card">
-            <img src="ibu.png" alt="Evi Meiroza">
-            <p>Evi Meiroza<br><small>Ibu Irvan Herman</small></p>
-        </div>
-    </div>
-</div>
-
-<div class="container" id="view-rekam-jejak">
-    <h2 class="section-title">Rekam Jejak Karya</h2>
-    
-    <div class="rekam-jejak-grid">
-        <div class="rj-card">
-            <img src="https://via.placeholder.com/400x250/1a73e8/ffffff?text=Pembangunan+Infrastruktur" alt="Infrastruktur">
-            <div class="rj-card-content">
-                <span class="rj-badge">Infrastruktur</span>
-                <h3>Pembangunan Fasilitas Publik Terintegrasi</h3>
-                <p>Membangun dan merevitalisasi ruang publik serta fasilitas kesehatan dasar untuk memberikan akses yang lebih merata bagi seluruh lapisan masyarakat.</p>
-            </div>
-            <div class="rj-card-footer">
-                <span>2022 - 2023</span>
-                <a href="#">Baca Selengkapnya &rarr;</a>
-            </div>
-        </div>
-
-        <div class="rj-card">
-            <img src="https://via.placeholder.com/400x250/ffb800/ffffff?text=Pendidikan+Anak" alt="Pendidikan">
-            <div class="rj-card-content">
-                <span class="rj-badge">Pendidikan</span>
-                <h3>Program Beasiswa Merata</h3>
-                <p>Menginisiasi program bantuan pendidikan bagi anak-anak berprestasi dari keluarga kurang mampu untuk memastikan tidak ada yang tertinggal.</p>
-            </div>
-            <div class="rj-card-footer">
-                <span>2021 - 2022</span>
-                <a href="#">Baca Selengkapnya &rarr;</a>
-            </div>
-        </div>
-
-        <div class="rj-card">
-            <img src="https://via.placeholder.com/400x250/0056b3/ffffff?text=Ekonomi+Kerakyatan" alt="Ekonomi">
-            <div class="rj-card-content">
-                <span class="rj-badge">Ekonomi Kerakyatan</span>
-                <h3>Pemberdayaan UMKM Lokal</h3>
-                <p>Memberikan pelatihan digitalisasi dan akses permodalan mudah bagi ribuan pelaku UMKM agar mampu bersaing di pasar nasional.</p>
-            </div>
-            <div class="rj-card-footer">
-                <span>2020 - 2021</span>
-                <a href="#">Baca Selengkapnya &rarr;</a>
-            </div>
-        </div>
-
-        <div class="rj-card">
-            <img src="https://via.placeholder.com/400x250/002050/ffffff?text=Penanganan+Krisis" alt="Sosial">
-            <div class="rj-card-content">
-                <span class="rj-badge">Sosial & Krisis</span>
-                <h3>Kolaborasi Tanggap Darurat Bencana</h3>
-                <p>Memimpin gerakan solidaritas masyarakat dan memastikan distribusi bantuan logistik yang transparan dan cepat sasaran selama masa krisis.</p>
-            </div>
-            <div class="rj-card-footer">
-                <span>2020</span>
-                <a href="#">Baca Selengkapnya &rarr;</a>
-            </div>
-        </div>
-
-        <div class="rj-card">
-            <img src="https://via.placeholder.com/400x250/64b5f6/ffffff?text=Transportasi+Modern" alt="Transportasi">
-            <div class="rj-card-content">
-                <span class="rj-badge">Transportasi</span>
-                <h3>Inovasi Layanan Transportasi Ramah Lingkungan</h3>
-                <p>Mendorong kebijakan penggunaan kendaraan umum yang terintegrasi dan rendah emisi untuk kualitas udara yang lebih baik.</p>
-            </div>
-            <div class="rj-card-footer">
-                <span>2019 - 2020</span>
-                <a href="#">Baca Selengkapnya &rarr;</a>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div id="view-media-content" style="display: none;">
-    <div class="media-content-wrapper">
-
-        <div class="social-connect-section">
-            <h2 class="social-title">Terhubung Dengan Kami</h2>
-            <div class="social-icons-wrapper">
-                
-                <div class="social-item">
-                    <a href="https://www.instagram.com/doc_irvan" target="_blank" class="social-icon-btn" title="Instagram">
-                        <svg viewBox="0 0 448 512"><path d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"/></svg>
-                    </a>
-                    <span class="social-label">Instagram</span>
+                <div class="hamburger" id="hamburger-menu">
+                    <span></span><span></span><span></span>
                 </div>
+            </div>
+        </nav>
 
-                <div class="social-item">
-                    <a href="https://www.tiktok.com/@dr.irvan.herman" target="_blank" class="social-icon-btn" title="TikTok">
-                        <svg viewBox="0 0 448 512"><path d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z"/></svg>
-                    </a>
-                    <span class="social-label">TikTok</span>
+        <div class="hero-baru" id="view-profil">
+            <div class="hero-teks">
+                <h1 class="nama-bertumpuk">
+                    <span class="teks-biru-tua">Irvan</span><br>
+                    <span class="teks-biru-muda">Herman</span><br>
+                    <span class="teks-biru-tua">Abdullah</span>
+                </h1>
+                <div class="kutipan-hero">
+                    <div class="kotak-oranye"><span></span><span></span></div>
+                    <p>Mendengarkan Permasalahan<br>dan menjawab tantangan krisis<br>dengan cara humanis.</p>
+                    <div class="panah-bawah">&darr;</div>
                 </div>
-
-                <div class="social-item">
-                    <a href="https://www.threads.net/@doc_irvan" target="_blank" class="social-icon-btn" title="Threads">
-                        <svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 86.6614 135.594 85.7335 133.155 85.1278C127.348 83.6872 118.995 83.275 109.13 83.275H108.979C108.204 83.275 107.41 83.2843 106.601 83.3031C107.032 80.5186 107.253 77.6369 107.253 74.672C107.253 61.2727 104.381 50.8407 98.8131 43.8344C93.4143 37.0402 85.5034 33.623 75.4674 33.623C64.9126 33.623 56.6324 37.3888 51.1091 44.7571C45.3347 52.4607 42.4277 63.6661 42.4277 77.8924C42.4277 92.4239 45.4795 103.821 51.4168 111.536C56.9657 118.746 65.2662 122.464 75.4674 122.464C83.9113 122.464 90.7297 119.897 95.6698 114.877C100.517 109.951 103.497 103.116 104.499 94.6757C105.187 94.5959 105.885 94.5513 106.593 94.5422C116.326 94.4172 124.621 95.4261 131.056 97.4984C134.12 98.4851 136.529 99.7369 138.207 101.218C139.068 101.979 139.734 102.815 140.186 103.682C138.868 113.88 134.426 122.969 126.961 129.982C118.156 138.254 105.474 142.748 89.2612 142.748C72.1062 142.748 58.7431 137.643 49.5222 127.591C39.6998 116.883 34.7634 100.441 34.7634 78.8951C34.7634 57.8105 39.7891 41.6963 49.6919 31.1075C58.8078 21.3601 71.9567 16.4258 88.5492 16.4258C105.748 16.4258 119.349 21.6444 128.847 31.916C138.077 41.9 142.724 55.9753 142.724 73.4913C142.724 79.0838 142.316 84.2863 141.537 88.9883ZM75.4674 108.974C68.9959 108.974 64.0931 106.666 60.9996 102.155C57.7303 97.3879 56.0957 89.5109 56.0957 78.847C56.0957 67.8447 57.751 59.8142 60.9821 54.9806C64.062 50.3683 68.9329 48.0125 75.4674 48.0125C82.0298 48.0125 86.8407 50.4851 89.7749 55.2284C92.9326 60.3326 94.4984 68.2046 94.4371 78.4908C94.3944 85.6631 93.3006 91.8016 91.242 96.6579C88.6946 102.668 83.3331 108.974 75.4674 108.974Z"/></svg>
-                    </a>
-                    <span class="social-label">Threads</span>
-                </div>
-
-                <div class="social-item">
-                    <a href="#" class="social-icon-btn" title="YouTube">
-                        <svg viewBox="0 0 576 512"><path d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z"/></svg>
-                    </a>
-                    <span class="social-label">YouTube</span>
-                </div>
-                
+            </div>
+            <div class="hero-foto">
+                <img src="ihaa.png" alt="Irvan Herman Abdullah">
             </div>
         </div>
 
-        <div class="media-header">
+        <div class="hero-content" id="view-kenali-hero">
+            <img src="iha.png" alt="Irvan Herman Abdullah" class="hero-image">
+        </div>
+
+        <div class="hero-content" id="view-rekam-jejak-hero" style="display: none;">
+            <img src="ihaspot.png" alt="Irvan Herman Rekam Jejak" class="hero-image">
+        </div>
+
+        <div class="hero-content" id="view-media-hero" style="display: none;">
+            <img src="ihajass.png" alt="Irvan Herman Abdullah Media" class="hero-image">
+        </div>
+    </div>
+
+    <section class="tentang-section" id="view-kenali-tentang">
+        <div class="tentang-bg-circle"></div>
+        <div class="tentang-container">
             <div class="yellow-squares"><span></span><span></span></div>
-            <h2>Hubungi Kami</h2>
-            <p>Hubungi tim resmi kampanye Irvan Herman melalui<br>
-            <a href="mailto:email@irvanherman.com">email@irvanherman.com</a></p>
+            <h2>Tentang Irvan Herman</h2>
+            <p>Irvan Herman Abdullah memiliki rekam jejak kepemimpinan lengkap sejak masa kecil. Ia dikenal sebagai
+                sosok yang memiliki integritas, amanah, cerdas, dan berani. Irvan Herman memiliki kemampuan membuat
+                perubahan, inovatif, memimpin di saat krisis, dan bisa membuat kebijakan yang tepat serta cepat.
+                Menjiwai persoalan di akar rumput rakyat dan menguasai medan di arena percaturan dunia.</p>
+            <div class="link-selengkapnya"><a href="#">Lihat Selengkapnya &rarr;</a></div>
         </div>
+    </section>
 
-        <div class="media-header" style="margin-top: 60px;">
-            <div class="yellow-squares"><span></span><span></span></div>
-            <h2>Download File Media</h2>
+    <div class="container" id="fakta">
+        <h2 class="section-title">Fakta Unik</h2>
+        <div class="card-container-scroll">
+            <div class="card-scroll">
+                <h3>Rekam Jejak</h3>
+                <p>Memiliki rekam jejak kepemimpinan lengkap sejak masa kecil dengan integritas tinggi.</p>
+            </div>
+            <div class="card-scroll">
+                <h3>Akar Rumput</h3>
+                <p>Menjiwai persoalan di akar rumput rakyat dan menguasai medan percaturan dunia.</p>
+            </div>
+            <div class="card-scroll">
+                <h3>Inovatif</h3>
+                <p>Memiliki kemampuan membuat perubahan dan memimpin dengan tenang di saat krisis.</p>
+            </div>
+            <div class="card-scroll">
+                <h3>Cerdas & Berani</h3>
+                <p>Dikenal sebagai sosok yang mampu membuat kebijakan yang tepat, cepat, dan terukur.</p>
+            </div>
+            <div class="card-scroll">
+                <h3>Kolaboratif</h3>
+                <p>Berpengalaman merangkul berbagai elemen masyarakat untuk mencapai tujuan bersama.</p>
+            </div>
         </div>
+    </div>
 
-        <div class="filter-container">
-            <button class="btn-filter active" data-filter="semua">Semua</button>
-            <button class="btn-filter" data-filter="foto">Foto</button>
-            <button class="btn-filter" data-filter="dokumen">Dokumen</button>
-            <button class="btn-filter" data-filter="poster">Poster</button>
+    <div class="container" id="view-keluarga">
+        <h2 class="section-title">Keluarga</h2>
+        <div class="grid-keluarga">
+            <div class="family-card">
+                <img src="ayah.png" alt="Herman Abdullah">
+                <p>Herman Abdullah<br><small>Ayah Irvan Herman</small></p>
+            </div>
+            <div class="family-card">
+                <img src="ibu.png" alt="Evi Meiroza">
+                <p>Evi Meiroza<br><small>Ibu Irvan Herman</small></p>
+            </div>
         </div>
+    </div>
 
-        <div class="media-grid">
-            <div class="media-card-item" data-kategori="foto">
-                <img src="https://via.placeholder.com/300x200?text=Foto+Aktivitas" alt="Foto">
-                <div class="media-card-info">
-                    <span>Foto Aktivitas</span>
-                    <a href="#" class="download-icon" title="Download">&darr;</a>
+    <div class="container" id="view-rekam-jejak">
+        <h2 class="section-title">Rekam Jejak Karya</h2>
+
+        <div class="rekam-jejak-grid">
+            <div class="rj-card">
+                <img src="https://via.placeholder.com/400x250/1a73e8/ffffff?text=Pembangunan+Infrastruktur"
+                    alt="Infrastruktur">
+                <div class="rj-card-content">
+                    <span class="rj-badge">Infrastruktur</span>
+                    <h3>Pembangunan Fasilitas Publik Terintegrasi</h3>
+                    <p>Membangun dan merevitalisasi ruang publik serta fasilitas kesehatan dasar untuk memberikan akses
+                        yang lebih merata bagi seluruh lapisan masyarakat.</p>
+                </div>
+                <div class="rj-card-footer">
+                    <span>2022 - 2023</span>
+                    <a href="#">Baca Selengkapnya &rarr;</a>
                 </div>
             </div>
-            <div class="media-card-item" data-kategori="dokumen">
-                <img src="https://via.placeholder.com/300x200?text=Riwayat+Hidup" alt="Dokumen">
-                <div class="media-card-info">
-                    <span>Riwayat Hidup</span>
-                    <a href="#" class="download-icon" title="Download">&darr;</a>
+
+            <div class="rj-card">
+                <img src="https://via.placeholder.com/400x250/ffb800/ffffff?text=Pendidikan+Anak" alt="Pendidikan">
+                <div class="rj-card-content">
+                    <span class="rj-badge">Pendidikan</span>
+                    <h3>Program Beasiswa Merata</h3>
+                    <p>Menginisiasi program bantuan pendidikan bagi anak-anak berprestasi dari keluarga kurang mampu
+                        untuk memastikan tidak ada yang tertinggal.</p>
+                </div>
+                <div class="rj-card-footer">
+                    <span>2021 - 2022</span>
+                    <a href="#">Baca Selengkapnya &rarr;</a>
                 </div>
             </div>
-            <div class="media-card-item" data-kategori="dokumen">
-                <img src="https://via.placeholder.com/300x200?text=Dokumen+Visi+Misi" alt="Dokumen">
-                <div class="media-card-info">
-                    <span>Dokumen Visi Misi</span>
-                    <a href="#" class="download-icon" title="Download">&darr;</a>
+
+            <div class="rj-card">
+                <img src="https://via.placeholder.com/400x250/0056b3/ffffff?text=Ekonomi+Kerakyatan" alt="Ekonomi">
+                <div class="rj-card-content">
+                    <span class="rj-badge">Ekonomi Kerakyatan</span>
+                    <h3>Pemberdayaan UMKM Lokal</h3>
+                    <p>Memberikan pelatihan digitalisasi dan akses permodalan mudah bagi ribuan pelaku UMKM agar mampu
+                        bersaing di pasar nasional.</p>
+                </div>
+                <div class="rj-card-footer">
+                    <span>2020 - 2021</span>
+                    <a href="#">Baca Selengkapnya &rarr;</a>
                 </div>
             </div>
-            <div class="media-card-item" data-kategori="poster">
-                <img src="https://via.placeholder.com/300x200?text=Infografis" alt="Poster">
-                <div class="media-card-info">
-                    <span>Infografis Rekam Jejak</span>
-                    <a href="#" class="download-icon" title="Download">&darr;</a>
+
+            <div class="rj-card">
+                <img src="https://via.placeholder.com/400x250/002050/ffffff?text=Penanganan+Krisis" alt="Sosial">
+                <div class="rj-card-content">
+                    <span class="rj-badge">Sosial & Krisis</span>
+                    <h3>Kolaborasi Tanggap Darurat Bencana</h3>
+                    <p>Memimpin gerakan solidaritas masyarakat dan memastikan distribusi bantuan logistik yang
+                        transparan dan cepat sasaran selama masa krisis.</p>
+                </div>
+                <div class="rj-card-footer">
+                    <span>2020</span>
+                    <a href="#">Baca Selengkapnya &rarr;</a>
                 </div>
             </div>
-            <div class="media-card-item" data-kategori="poster">
-                <img src="https://via.placeholder.com/300x200?text=Karya+Ilustrator" alt="Poster">
-                <div class="media-card-info">
-                    <span>Karya Ilustrator</span>
-                    <a href="#" class="download-icon" title="Download">&darr;</a>
+
+            <div class="rj-card">
+                <img src="https://via.placeholder.com/400x250/64b5f6/ffffff?text=Transportasi+Modern"
+                    alt="Transportasi">
+                <div class="rj-card-content">
+                    <span class="rj-badge">Transportasi</span>
+                    <h3>Inovasi Layanan Transportasi Ramah Lingkungan</h3>
+                    <p>Mendorong kebijakan penggunaan kendaraan umum yang terintegrasi dan rendah emisi untuk kualitas
+                        udara yang lebih baik.</p>
                 </div>
-            </div>
-            <div class="media-card-item" data-kategori="foto">
-                <img src="https://via.placeholder.com/300x200?text=Logo+Resmi" alt="Logo">
-                <div class="media-card-info">
-                    <span>Logo Resmi</span>
-                    <a href="#" class="download-icon" title="Download">&darr;</a>
+                <div class="rj-card-footer">
+                    <span>2019 - 2020</span>
+                    <a href="#">Baca Selengkapnya &rarr;</a>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-<footer>
-    <p>&copy; 2026 Kenali Irvan Herman Abdullah. Semua Hak Dilindungi.</p>
-</footer>
+    <div id="view-media-content" style="display: none;">
+        <div class="media-content-wrapper">
 
-<a href="#atas" class="back-to-top" id="backToTopBtn" title="Kembali ke Atas">&uarr;</a>
+            <div class="social-connect-section">
+                <h2 class="social-title">Terhubung Dengan Kami</h2>
+                <div class="social-icons-wrapper">
 
-<script>
-    // --- LOGIKA TAB/SPA ---
-    const logoTrigger = document.getElementById('logo-trigger');
-    const navKenali = document.getElementById('nav-kenali');
-    const navRekamJejak = document.getElementById('nav-rekam-jejak');
-    const navMedia = document.getElementById('nav-media'); 
-    
-    // Elemen Konten
-    const viewProfil = document.getElementById('view-profil');
-    const viewKenaliHero = document.getElementById('view-kenali-hero');
-    const viewKenaliTentang = document.getElementById('view-kenali-tentang');
-    const viewFakta = document.getElementById('fakta'); 
-    const viewKeluarga = document.getElementById('view-keluarga');
-    
-    const viewRekamJejakHero = document.getElementById('view-rekam-jejak-hero'); 
-    const viewRekamJejak = document.getElementById('view-rekam-jejak');
-    
-    const viewMediaHero = document.getElementById('view-media-hero');
-    const viewMediaContent = document.getElementById('view-media-content');
+                    <div class="social-item">
+                        <a href="https://www.instagram.com/doc_irvan" target="_blank" class="social-icon-btn"
+                            title="Instagram">
+                            <svg viewBox="0 0 448 512">
+                                <path
+                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
+                            </svg>
+                        </a>
+                        <span class="social-label">Instagram</span>
+                    </div>
 
-    // Fungsi untuk menyembunyikan semua tampilan
-    function hideAllViews() {
-        viewProfil.style.display = 'none';
-        viewKenaliHero.style.display = 'none';
-        viewKenaliTentang.style.display = 'none';
-        viewFakta.style.display = 'none'; 
-        viewKeluarga.style.display = 'none';
-        viewRekamJejakHero.style.display = 'none'; 
-        viewRekamJejak.style.display = 'none';
-        viewMediaHero.style.display = 'none';
-        viewMediaContent.style.display = 'none';
-    }
+                    <div class="social-item">
+                        <a href="https://www.tiktok.com/@dr.irvan.herman" target="_blank" class="social-icon-btn"
+                            title="TikTok">
+                            <svg viewBox="0 0 448 512">
+                                <path
+                                    d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
+                            </svg>
+                        </a>
+                        <span class="social-label">TikTok</span>
+                    </div>
 
-    // Jika Logo diklik -> Beranda
-    logoTrigger.addEventListener('click', () => {
-        hideAllViews();
-        viewProfil.style.display = 'flex';
-    });
+                    <div class="social-item">
+                        <a href="#" class="social-icon-btn" title="YouTube">
+                            <svg viewBox="0 0 576 512">
+                                <path
+                                    d="M549.655 124.083c-6.281-23.65-24.787-42.276-48.284-48.597C458.781 64 288 64 288 64S117.22 64 74.629 75.486c-23.497 6.322-42.003 24.947-48.284 48.597-11.412 42.867-11.412 132.305-11.412 132.305s0 89.438 11.412 132.305c6.281 23.65 24.787 41.5 48.284 47.821C117.22 448 288 448 288 448s170.78 0 213.371-11.486c23.497-6.321 42.003-24.171 48.284-47.821 11.412-42.867 11.412-132.305 11.412-132.305s0-89.438-11.412-132.305zm-317.51 213.508V175.185l142.739 81.205-142.739 81.201z" />
+                            </svg>
+                        </a>
+                        <span class="social-label">YouTube</span>
+                    </div>
 
-    // Jika 'Kenali Irvan' diklik
-    navKenali.addEventListener('click', () => {
-        hideAllViews();
-        viewKenaliHero.style.display = 'flex';
-        viewKenaliTentang.style.display = 'flex';
-        viewFakta.style.display = 'block'; 
-        viewKeluarga.style.display = 'block';
-    });
+                    <div class="social-item">
+                        <a href="https://www.threads.net/@doc_irvan" target="_blank" class="social-icon-btn"
+                            title="Threads">
+                            <svg viewBox="0 0 192 192" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 86.6614 135.594 85.7335 133.155 85.1278C127.348 83.6872 118.995 83.275 109.13 83.275H108.979C108.204 83.275 107.41 83.2843 106.601 83.3031C107.032 80.5186 107.253 77.6369 107.253 74.672C107.253 61.2727 104.381 50.8407 98.8131 43.8344C93.4143 37.0402 85.5034 33.623 75.4674 33.623C64.9126 33.623 56.6324 37.3888 51.1091 44.7571C45.3347 52.4607 42.4277 63.6661 42.4277 77.8924C42.4277 92.4239 45.4795 103.821 51.4168 111.536C56.9657 118.746 65.2662 122.464 75.4674 122.464C83.9113 122.464 90.7297 119.897 95.6698 114.877C100.517 109.951 103.497 103.116 104.499 94.6757C105.187 94.5959 105.885 94.5513 106.593 94.5422C116.326 94.4172 124.621 95.4261 131.056 97.4984C134.12 98.4851 136.529 99.7369 138.207 101.218C139.068 101.979 139.734 102.815 140.186 103.682C138.868 113.88 134.426 122.969 126.961 129.982C118.156 138.254 105.474 142.748 89.2612 142.748C72.1062 142.748 58.7431 137.643 49.5222 127.591C39.6998 116.883 34.7634 100.441 34.7634 78.8951C34.7634 57.8105 39.7891 41.6963 49.6919 31.1075C58.8078 21.3601 71.9567 16.4258 88.5492 16.4258C105.748 16.4258 119.349 21.6444 128.847 31.916C138.077 41.9 142.724 55.9753 142.724 73.4913C142.724 79.0838 142.316 84.2863 141.537 88.9883ZM75.4674 108.974C68.9959 108.974 64.0931 106.666 60.9996 102.155C57.7303 97.3879 56.0957 89.5109 56.0957 78.847C56.0957 67.8447 57.751 59.8142 60.9821 54.9806C64.062 50.3683 68.9329 48.0125 75.4674 48.0125C82.0298 48.0125 86.8407 50.4851 89.7749 55.2284C92.9326 60.3326 94.4984 68.2046 94.4371 78.4908C94.3944 85.6631 93.3006 91.8016 91.242 96.6579C88.6946 102.668 83.3331 108.974 75.4674 108.974Z" />
+                            </svg>
+                        </a>
+                        <span class="social-label">Threads</span>
+                    </div>
 
-    // Jika 'Rekam Jejak' diklik
-    navRekamJejak.addEventListener('click', () => {
-        hideAllViews();
-        viewRekamJejakHero.style.display = 'flex'; 
-        viewRekamJejak.style.display = 'block'; 
-    });
+                </div>
+            </div>
 
-    // Jika 'Media' diklik
-    navMedia.addEventListener('click', () => {
-        hideAllViews();
-        viewMediaHero.style.display = 'flex';
-        viewMediaContent.style.display = 'block';
-    });
+            <div class="media-header">
+                <div class="yellow-squares"><span></span><span></span></div>
+                <h2>Hubungi Kami</h2>
+                <p>Hubungi tim resmi kampanye Irvan Herman melalui<br>
+                    <a href="mailto:email@irvanherman.com">email@irvanherman.com</a>
+                </p>
+            </div>
 
-    // --- NAVIGASI HAMBURGER ---
-    const hamburger = document.getElementById('hamburger-menu');
-    const navLinks = document.getElementById('nav-links');
+            <div class="media-header" style="margin-top: 60px;">
+                <div class="yellow-squares"><span></span><span></span></div>
+                <h2>Download File Media</h2>
+            </div>
 
-    function toggleMenu() {
-        if(window.innerWidth <= 768) {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
+            <div class="filter-container">
+                <button class="btn-filter active" data-filter="semua">Semua</button>
+                <button class="btn-filter" data-filter="foto">Foto</button>
+                <button class="btn-filter" data-filter="dokumen">Dokumen</button>
+                <button class="btn-filter" data-filter="poster">Poster</button>
+            </div>
+
+            <div class="media-grid">
+                <div class="media-card-item" data-kategori="foto">
+                    <img src="https://via.placeholder.com/300x200?text=Foto+Aktivitas" alt="Foto">
+                    <div class="media-card-info">
+                        <span>Foto Aktivitas</span>
+                        <a href="#" class="download-icon" title="Download">&darr;</a>
+                    </div>
+                </div>
+                <div class="media-card-item" data-kategori="dokumen">
+                    <img src="https://via.placeholder.com/300x200?text=Riwayat+Hidup" alt="Dokumen">
+                    <div class="media-card-info">
+                        <span>Riwayat Hidup</span>
+                        <a href="#" class="download-icon" title="Download">&darr;</a>
+                    </div>
+                </div>
+                <div class="media-card-item" data-kategori="dokumen">
+                    <img src="https://via.placeholder.com/300x200?text=Dokumen+Visi+Misi" alt="Dokumen">
+                    <div class="media-card-info">
+                        <span>Dokumen Visi Misi</span>
+                        <a href="#" class="download-icon" title="Download">&darr;</a>
+                    </div>
+                </div>
+                <div class="media-card-item" data-kategori="poster">
+                    <img src="https://via.placeholder.com/300x200?text=Infografis" alt="Poster">
+                    <div class="media-card-info">
+                        <span>Infografis Rekam Jejak</span>
+                        <a href="#" class="download-icon" title="Download">&darr;</a>
+                    </div>
+                </div>
+                <div class="media-card-item" data-kategori="poster">
+                    <img src="https://via.placeholder.com/300x200?text=Karya+Ilustrator" alt="Poster">
+                    <div class="media-card-info">
+                        <span>Karya Ilustrator</span>
+                        <a href="#" class="download-icon" title="Download">&darr;</a>
+                    </div>
+                </div>
+                <div class="media-card-item" data-kategori="foto">
+                    <img src="https://via.placeholder.com/300x200?text=Logo+Resmi" alt="Logo">
+                    <div class="media-card-info">
+                        <span>Logo Resmi</span>
+                        <a href="#" class="download-icon" title="Download">&darr;</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Kenali Irvan Herman Abdullah. Semua Hak Dilindungi.</p>
+    </footer>
+
+    <a href="#atas" class="back-to-top" id="backToTopBtn" title="Kembali ke Atas">&uarr;</a>
+
+    <script>
+        // --- LOGIKA TAB/SPA ---
+        const logoTrigger = document.getElementById('logo-trigger');
+        const navKenali = document.getElementById('nav-kenali');
+        const navRekamJejak = document.getElementById('nav-rekam-jejak');
+        const navMedia = document.getElementById('nav-media');
+
+        // Elemen Konten
+        const viewProfil = document.getElementById('view-profil');
+        const viewKenaliHero = document.getElementById('view-kenali-hero');
+        const viewKenaliTentang = document.getElementById('view-kenali-tentang');
+        const viewFakta = document.getElementById('fakta');
+        const viewKeluarga = document.getElementById('view-keluarga');
+
+        const viewRekamJejakHero = document.getElementById('view-rekam-jejak-hero');
+        const viewRekamJejak = document.getElementById('view-rekam-jejak');
+
+        const viewMediaHero = document.getElementById('view-media-hero');
+        const viewMediaContent = document.getElementById('view-media-content');
+
+        // Fungsi untuk menyembunyikan semua tampilan
+        function hideAllViews() {
+            viewProfil.style.display = 'none';
+            viewKenaliHero.style.display = 'none';
+            viewKenaliTentang.style.display = 'none';
+            viewFakta.style.display = 'none';
+            viewKeluarga.style.display = 'none';
+            viewRekamJejakHero.style.display = 'none';
+            viewRekamJejak.style.display = 'none';
+            viewMediaHero.style.display = 'none';
+            viewMediaContent.style.display = 'none';
         }
-    }
-    hamburger.addEventListener('click', toggleMenu);
 
-    // --- TOMBOL DARK MODE ---
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    const body = document.body;
-    const currentTheme = localStorage.getItem('theme');
-    
-    if (currentTheme) body.setAttribute('data-theme', currentTheme);
+        // Jika Logo diklik -> Beranda
+        logoTrigger.addEventListener('click', () => {
+            hideAllViews();
+            viewProfil.style.display = 'flex';
+        });
 
-    themeToggleBtn.addEventListener('click', () => {
-        let theme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
-        body.setAttribute('data-theme', theme);
-        localStorage.setItem('theme', theme);
-    });
+        // Jika 'Kenali Irvan' diklik
+        navKenali.addEventListener('click', () => {
+            hideAllViews();
+            viewKenaliHero.style.display = 'flex';
+            viewKenaliTentang.style.display = 'flex';
+            viewFakta.style.display = 'block';
+            viewKeluarga.style.display = 'block';
+        });
 
-    // --- TOMBOL KEMBALI KE ATAS ---
-    const backToTopBtn = document.getElementById("backToTopBtn");
-    window.onscroll = function() {
-        if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-            backToTopBtn.classList.add("show");
-        } else {
-            backToTopBtn.classList.remove("show");
+        // Jika 'Rekam Jejak' diklik
+        navRekamJejak.addEventListener('click', () => {
+            hideAllViews();
+            viewRekamJejakHero.style.display = 'flex';
+            viewRekamJejak.style.display = 'block';
+        });
+
+        // Jika 'Media' diklik
+        navMedia.addEventListener('click', () => {
+            hideAllViews();
+            viewMediaHero.style.display = 'flex';
+            viewMediaContent.style.display = 'block';
+        });
+
+        // --- NAVIGASI HAMBURGER ---
+        const hamburger = document.getElementById('hamburger-menu');
+        const navLinks = document.getElementById('nav-links');
+
+        function toggleMenu() {
+            if (window.innerWidth <= 768) {
+                navLinks.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            }
         }
-    };
-    backToTopBtn.addEventListener('click', function(e) {
-        e.preventDefault();
-        window.scrollTo({top: 0, behavior: 'smooth'});
-    });
+        hamburger.addEventListener('click', toggleMenu);
 
-    // --- LOGIKA FILTER MEDIA ---
-    const filterBtns = document.querySelectorAll('.btn-filter');
-    const mediaCards = document.querySelectorAll('.media-card-item');
+        // --- TOMBOL DARK MODE ---
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+        const currentTheme = localStorage.getItem('theme');
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+        if (currentTheme) body.setAttribute('data-theme', currentTheme);
 
-            const filterValue = btn.getAttribute('data-filter');
+        themeToggleBtn.addEventListener('click', () => {
+            let theme = body.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            body.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        });
 
-            mediaCards.forEach(card => {
-                if (filterValue === 'semua' || card.getAttribute('data-kategori') === filterValue) {
-                    card.style.display = 'flex'; 
-                } else {
-                    card.style.display = 'none'; 
-                }
+        // --- TOMBOL KEMBALI KE ATAS ---
+        const backToTopBtn = document.getElementById("backToTopBtn");
+        window.onscroll = function () {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                backToTopBtn.classList.add("show");
+            } else {
+                backToTopBtn.classList.remove("show");
+            }
+        };
+        backToTopBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // --- LOGIKA FILTER MEDIA ---
+        const filterBtns = document.querySelectorAll('.btn-filter');
+        const mediaCards = document.querySelectorAll('.media-card-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filterValue = btn.getAttribute('data-filter');
+
+                mediaCards.forEach(card => {
+                    if (filterValue === 'semua' || card.getAttribute('data-kategori') === filterValue) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
             });
         });
-    });
-</script>
+    </script>
 
 </body>
+
 </html>
