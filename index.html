@@ -526,6 +526,29 @@
             flex-grow: 1;
         }
 
+        /* CSS BARU UNTUK TOMBOL SUMBER */
+        .btn-sumber {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 18px;
+            background-color: var(--card-bg);
+            color: var(--primary-color);
+            border: 1.5px solid var(--primary-color);
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .btn-sumber:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.2);
+            transform: translateY(-2px);
+        }
+
         .rj-card-footer {
             display: flex;
             justify-content: space-between;
@@ -689,11 +712,9 @@
             display: flex;
             justify-content: center;
             gap: 35px;
-            /* Jarak antar kolom sosmed diperlebar sedikit */
             flex-wrap: wrap;
         }
 
-        /* Tambahan Flexbox untuk membungkus tombol dan label teks */
         .social-item {
             display: flex;
             flex-direction: column;
@@ -729,7 +750,6 @@
             fill: currentColor;
         }
 
-        /* Efek hover diaplikasikan ke parent agar ikon dan teks berubah bersamaan */
         .social-item:hover .social-icon-btn {
             background-color: var(--primary-color);
             color: #ffffff;
@@ -1049,13 +1069,14 @@
 
         <div class="rekam-jejak-grid">
             <div class="rj-card">
-                <img src="https://via.placeholder.com/400x250/1a73e8/ffffff?text=Pembangunan+Infrastruktur"
-                    alt="Infrastruktur">
+                <img src="rekam1.png" alt="Infrastruktur">
                 <div class="rj-card-content">
                     <span class="rj-badge">Infrastruktur</span>
-                    <h3>Pembangunan Fasilitas Publik Terintegrasi</h3>
-                    <p>Membangun dan merevitalisasi ruang publik serta fasilitas kesehatan dasar untuk memberikan akses
-                        yang lebih merata bagi seluruh lapisan masyarakat.</p>
+                    <h3>Revitalisasi Pasar Palapa di Jalan Durian, Pekanbaru</h3>
+                    <p>Membangun dan merevitalisasi ruang publik serta fasilitas pasar kebutuhan masyakarat untuk memberikan akses yang lebih baik dan layak bagi seluruh lapisan masyarakat.</p>
+                    
+                    <a href="https://www.cakaplah.com/berita/baca/100972/2023/07/31/dapat-dukungan-moral-dari-pedagang-menuju-senayan-begini-kata-irvan-herman#sthash.YFD1CppY.dpbs" target="_blank" class="btn-sumber">Sumber Berita</a>
+
                 </div>
                 <div class="rj-card-footer">
                     <span>2022 - 2023</span>
